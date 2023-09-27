@@ -1,0 +1,17 @@
+<div class="container">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let datum of data">
+   
+    <div class="card h-100" >
+      <img [src]="datum.image" class="card-img-top img-fluid aspect-ratio  " alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ datum.title }}</h5>
+        <p class="card-text">{{ datum.description }}</p>
+        <h6 class="card-price ">{{ datum.price | currency }}</h6>
+        <a href="#" class="btn btn-primary">Add car</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
