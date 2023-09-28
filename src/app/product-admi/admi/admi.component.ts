@@ -4,8 +4,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ProductHome } from "../../interface/products-home";
 import { ApiServiceService } from "../../service/api-service.service";
-//import {MatIconModule} from '@angular/material/icon';
-//import {MatButtonModule} from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { ModalComponent } from "../modal/modal.component";
 
 
 @Component({
@@ -18,7 +20,9 @@ export class AdmiComponent implements OnInit {
   displayedColumns: string[] = ['Id', 'Title', 'Category', 'Price', 'Action'];
   dataSource = new MatTableDataSource<ProductHome>();
   
-  constructor(private apiservice:ApiServiceService){}
+  constructor(private apiservice:ApiServiceService,
+    public dialog: MatDialog
+    ){}
   ngOnInit(): void {
     this.showList();
   }
@@ -30,10 +34,15 @@ export class AdmiComponent implements OnInit {
       }, error:(e)=>{}
     })
   }
-  
+ 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   } 
-
+  openModal() {
+    this.dialog.open(ModalComponent);
+  }
 }
+
+
+

@@ -12,6 +12,7 @@ import { AdmiComponent } from './product-admi/admi/admi.component';
 import { HomeComponent } from './home/home/home.component';
 import { ShoppingComponent } from './shopping-card/shopping/shopping.component';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from '../app/product-admi/modal/modal.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule} from '@angular/material/table';
@@ -23,7 +24,8 @@ import {MatSelectModule } from "@angular/material/select";
 import {MatButtonModule } from "@angular/material/button";
 import {MatDatepickerModule } from "@angular/material/datepicker";
 import {MatNativeDateModule } from "@angular/material/core";
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {MatNativeDateModule } from "@angular/material/core";
     HeaderComponent,
     AdmiComponent,
     ShoppingComponent,
+    ModalComponent,
     
   ],
   imports: [
@@ -49,7 +52,9 @@ import {MatNativeDateModule } from "@angular/material/core";
     MatSelectModule,
     MatButtonModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    MatDialogModule
     
   ],
   providers: [],
