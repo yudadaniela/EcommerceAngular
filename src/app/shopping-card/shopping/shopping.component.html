@@ -1,1 +1,25 @@
-<p>shopping works!</p>
+<h1>Shopping car </h1>
+
+<div class="shopping">
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of listShoppingCar">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.quantity}}</td>
+        <!-- <td>{{item.price*item.quantity}}</td> -->
+
+    </tr>
+</tbody>
+</table>
+</div>

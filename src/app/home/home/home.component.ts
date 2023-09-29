@@ -25,8 +25,10 @@ export class HomeComponent implements OnInit {
    }
    let car:ItemCar[]=[]
    car.push(shopping)
-   localStorage.setItem('car', JSON.stringify(car));
+   console.log(car);
    
+   localStorage.setItem('car', JSON.stringify(car))
+
   }
   
   

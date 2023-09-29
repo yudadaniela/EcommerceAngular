@@ -46,13 +46,14 @@
 
      
     </mat-grid-list>
+    <div mat-dialog-actions>
+      <button mat-raised-button mat-dialog-close color="warn">Close</button>
+      <button mat-raised-button color="primary"
+      (click)="addEditProduct()"
+      [disabled]="formProducts.invalid"
+      >{{buttonAction}}</button>
+    
+    </div>
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-raised-button mat-dialog-close color="warn">Close</button>
-  <button mat-raised-button mat-dialog-close color="primary"
-  (click)="addEditProduct()"
-  [disabled]="formProducts.invalid"
-  >{{buttonAction}}</button>
 
-</div>

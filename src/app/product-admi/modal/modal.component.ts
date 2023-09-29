@@ -21,7 +21,7 @@ export class ModalComponent  {
   listProduct: ProductHome[] = [];
   submit:boolean=false;
   constructor(
-    private modalRef: MatDialogRef<ApiServiceService>, //*** */
+    private modalRef: MatDialogRef<ModalComponent>, //*** */
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private apiService: ApiServiceService
@@ -49,8 +49,8 @@ export class ModalComponent  {
     });
   }
  addEditProduct(){
- 
-  //console.log(this.formProducts.value);
+  
+  console.log(this.formProducts.value);
  const model:ProductHome={
   category: this.formProducts.value.category,
       id:0,    
@@ -59,13 +59,14 @@ export class ModalComponent  {
       price: this.formProducts.value.price,
       title: this.formProducts.value.title,
  } 
+ //this.modalRef.close(model)
   this.apiService.addData(model).subscribe((data)=>{
-      console.log(data);
+
+      console.log('mensaje antes',data);
       
       this.showAlert('product register','OK');
       this.modalRef.close(data)
-    }
-  ) 
+    }) 
  }
 
  
