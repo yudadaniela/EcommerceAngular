@@ -8,7 +8,7 @@
         <h5 class="card-title">{{ datum.title }}</h5>
         <p class="card-text">{{ datum.description }}</p>
         <h6 class="card-price ">{{ datum.price | currency }}</h6>
-        <a href="#" class="btn btn-primary">Add car</a>
+        <button (click)="addToCar(datum)" >Add Car</button>
       </div>
     </div>
   </div>

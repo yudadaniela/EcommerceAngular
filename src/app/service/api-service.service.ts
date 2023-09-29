@@ -15,12 +15,12 @@ export class ApiServiceService {
     return this.http.get<ProductHome[]>(this.upiUrl)
   }
   addData(model:ProductHome):Observable<ProductHome>{
-    return this.http.post<ProductHome>(`${this.upiUrl}/products`, model)
+    return this.http.post<ProductHome>(`${this.upiUrl}`, model)
   }
   upDate(id:number,model:ProductHome):Observable<ProductHome>{
-    return this.http.put<ProductHome>(`${this.upiUrl}/products/${id}`, model)
+    return this.http.put<ProductHome>(`${this.upiUrl}/${id}`, model)
   }
   delete(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.upiUrl}/products/${id}`)
+    return this.http.delete<void>(`${this.upiUrl}/${id}`)
   }
 }

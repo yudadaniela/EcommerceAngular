@@ -1,11 +1,58 @@
 <h1 mat-dialog-title>{{titleAction}}</h1>
 <div mat-dialog-content>
-  <form [formGroup]="formProducts">
-    <input type="text">
 
+  <form [formGroup]="formProducts" >
+    
+    <mat-grid-list cols="1" rowHeight="100px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>title</mat-label>
+          <input matInput formControlName="title" autocomplete="off">
+         </mat-form-field>
+      </mat-grid-tile>
 
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option value="one">men's clothing</mat-option>
+            <mat-option value="two">jewelery</mat-option>
+            <mat-option value="two">electronics</mat-option>
+            <mat-option value="two">women's clothing</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Price</mat-label>
+          <input matInput formControlName="price" autocomplete="off" type="number">
+         </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Url Imagen</mat-label>
+          <input matInput formControlName="image" autocomplete="off">
+         </mat-form-field>
+      </mat-grid-tile>
+
+     
+    </mat-grid-list>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+  <button mat-raised-button mat-dialog-close color="warn">Close</button>
+  <button mat-raised-button mat-dialog-close color="primary"
+  (click)="addEditProduct()"
+  [disabled]="formProducts.invalid"
+  >{{buttonAction}}</button>
+
 </div>
