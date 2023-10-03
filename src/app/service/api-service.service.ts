@@ -7,7 +7,7 @@ import { ProductHome } from "../interface/products-home";
   providedIn: 'root'
 })
 export class ApiServiceService {
-  private upiUrl='https://fakestoreapi.com/products';
+  private upiUrl='http://localhost:3000/products';
 
   constructor(private http:HttpClient){}
   
@@ -15,7 +15,7 @@ export class ApiServiceService {
     return this.http.get<ProductHome[]>(this.upiUrl)
   }
   addData(model:ProductHome):Observable<ProductHome>{
-    return this.http.post<ProductHome>(`${this.upiUrl}`, model)
+    return this.http.post<ProductHome>(this.upiUrl, model)
   }
   upDate(id:number,model:ProductHome):Observable<ProductHome>{
     return this.http.put<ProductHome>(`${this.upiUrl}/${id}`, model)

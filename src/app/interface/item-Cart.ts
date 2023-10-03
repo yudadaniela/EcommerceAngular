@@ -1,6 +1,7 @@
 export interface ItemCar{
     id:number,
     title: string,
-    price: number
-    quantity?:number
+    price: number,
+    quantity:number,
+    subtotal?:number
 }

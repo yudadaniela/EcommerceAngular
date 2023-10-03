@@ -27,7 +27,8 @@ import {MatNativeDateModule } from "@angular/material/core";
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
     AdmiComponent,
     ShoppingComponent,
     ModalComponent,
+    FooterComponent,
     
   ],
   imports: [
