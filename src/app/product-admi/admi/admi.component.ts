@@ -1,9 +1,10 @@
-import { ModalComponent } from './../modal/modal.component';
+import { ModalComponent } from '../modal-create-edit/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ProductHome } from '../../interface/products-home';
 import { ApiServiceService } from '../../service/api-service.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 
 @Component({
   selector: 'app-admi',
@@ -54,10 +55,10 @@ export class AdmiComponent implements OnInit {
       }
     });
   }
-  openModalForEdit(product: ProductHome) {
+  openModalEdit(product: ProductHome) {
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '350px',
-      data:product
+      data: product,
     });
     dialogRef.afterClosed().subscribe((res) => {
       //console.log(res);
@@ -69,6 +70,23 @@ export class AdmiComponent implements OnInit {
         this.showList();
       } else {
         console.log('algo paso');
+      }
+    });
+  }
+  openModalDelete(product: ProductHome) {
+    const dialogRef = this.dialog.open(ModalDeleteComponent, {
+      data: product,
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === 'delete') {
+        this.apiservice.delete(product.id).subscribe({
+          next: (data) => {
+            this.showList();
+          },
+          error: (e) => {
+            console.log(e);
+          },
+        });
       }
     });
   }

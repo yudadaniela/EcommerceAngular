@@ -1,6 +1,7 @@
-<p>admi works!</p>
 <div style="width: 70%; margin: 40px auto">
-  <button mat-raised-button color="primary" (click)="openModal()">New Product</button>
+  <button mat-raised-button color="primary" (click)="openModal()">
+    New Product
+  </button>
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input
@@ -43,14 +44,13 @@
         <button
           mat-icon-button
           color="primary"
-          (click)="openModalForEdit(element)"
+          (click)="openModalEdit(element)"
         >
           <mat-icon>edit</mat-icon>
         </button>
-        <button
-          mat-icon-button
-          color="warn"
-        >
+        <button mat-icon-button
+         color="warn"
+         (click)="openModalDelete(element)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>

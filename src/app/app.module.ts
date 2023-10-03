@@ -12,7 +12,7 @@ import { AdmiComponent } from './product-admi/admi/admi.component';
 import { HomeComponent } from './home/home/home.component';
 import { ShoppingComponent } from './shopping-card/shopping/shopping.component';
 import { FormsModule } from '@angular/forms';
-import { ModalComponent } from '../app/product-admi/modal/modal.component';
+import { ModalComponent } from './product-admi/modal-create-edit/modal.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule} from '@angular/material/table';
@@ -28,7 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { ModalDeleteComponent } from './product-admi/modal-delete/modal-delete.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FooterComponent } from './components/footer/footer.component'
     ShoppingComponent,
     ModalComponent,
     FooterComponent,
+    ModalDeleteComponent,
     
   ],
   imports: [
