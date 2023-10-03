@@ -1,0 +1,22 @@
+.container{
+  padding: 5rem;
+}
+.card{
+    border-radius: 10px;
+    border: solid #694758;
+}
+.card-img{
+height: 20rem;
+}
+.card-body{
+    background-color: #FAE9E6;
+}
+.card-title{
+    font-size: large;
+}
+.card-text{
+    font-size: small;
+}
+.card-price{
+    font-size: large;
+}

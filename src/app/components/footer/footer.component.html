@@ -1,12 +1,20 @@
-<footer >
-<nav class="navbar navbar-light" style="background-color: #481313;">
+<footer  >
+<nav class="navbar navbar-light">
     <div >
     </div>
-    <ul class="nav justify-content-center">
+    <ul class="nav ">
         <li class="nav-item">
-            <mat-icon color="#FAE9E6" >favorite</mat-icon>
+             <mat-icon  [ngStyle]="{'color':' #FAE9E6'}"  fontIcon="home"></mat-icon>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shopping">Card Shopping</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/administration">Administration</a>
+        </li>
       </ul>
   </nav>
 </footer>
