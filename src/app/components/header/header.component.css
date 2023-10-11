@@ -1,15 +1,29 @@
-h1{
-  margin: 10px;  
-  font-size: x-large;
+
+.nav-link {
+  color: #fae9e6;
+  font-size: large;
 }
-.nav-link{
-    color: #FAE9E6;
-    font-size:large;
-}
-img{
+img {
   width: 120px;
   height: 100px;
-  border-radius:20px ;
-  margin-left: 15px;
-  background-color:rgb(32, 30, 27);
+  border-radius: 20px;
+  margin-left: 20px;
+  background-color: rgb(32, 30, 27);
+}
+
+.counter{
+  padding:0;
+  margin: 0;
+  background-color: #6f3247;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;  
+}
+.nav {
+  padding-right: 10px;
+  margin: 0;
+  color: #fae9e6;
+  font-size: 40px;
 }
