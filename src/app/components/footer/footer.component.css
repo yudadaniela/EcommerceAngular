@@ -1,4 +1,24 @@
-footer{
- height: 10rem;
- background-color: #6f3247;
+footer {
+  background-color: #6f3247;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+}
+.footer-container {
+  margin: 0 auto;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+i {
+  color: #fae9e6;
+  font-size: xx-large;
+  padding: 10px;
+}
+p {
+    color: #fae9e6;
+    font-size: large; 
+    padding-top: 60px; 
 }

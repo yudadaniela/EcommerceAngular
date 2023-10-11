@@ -29,6 +29,8 @@ export class HomeComponent implements OnInit {
     //console.log('shopping');
 
     this.cartService.addToCartLocalStorage(shopping);
+    this.cartService.total();
+    this.cartService.counter()
   }
 
   ngOnInit(): void {

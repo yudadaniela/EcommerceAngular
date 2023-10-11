@@ -1,21 +1,29 @@
-table{
-    width: 70%;  
+table {
+  width: 70%;
 }
-h2{
-    display: flex;
-    justify-content: center;
-
+h2 {
+  display: flex;
+  justify-content: center;
 }
-.shopping{
- display: flex;
- justify-content: center;
- align-items: center;
+.shopping {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-table, th, td{
-    border: 1px solid black;   
+table,
+th,
+td {
+  border: 1px solid black;
 }
-.btn-shopping-card{
- display: flex;
- justify-content: center;
- align-items: center;
+.btn-shopping-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
+  display: flex;
+  justify-content: center;
+  color: brown;
+  padding: 10px;
+  font-size: xx-large;
 }

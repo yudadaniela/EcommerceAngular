@@ -4,5 +4,12 @@ h1{
 }
 .nav-link{
     color: #FAE9E6;
-    font-size: medium;
+    font-size:large;
+}
+img{
+  width: 120px;
+  height: 100px;
+  border-radius:20px ;
+  margin-left: 15px;
+  background-color:rgb(32, 30, 27);
 }

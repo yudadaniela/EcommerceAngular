@@ -1,0 +1,50 @@
+<body>
+  <div class="container">
+    <h2>Sign-up</h2>
+    <form [formGroup]="myForm">
+      <div class="form-input">
+        <label for="">Name</label>
+        <input type="text" />
+      </div>
+      <div class="form-input">
+        <label for="">Last Name</label>
+        <input type="text" />
+      </div>
+      <div class="form-input">
+        <label for="">Email</label>
+        <input type="email" />
+      </div>
+      
+      <div class="form-input">
+        <label for="">Continent</label>
+        <select formControlName="region">
+          <option value="">--Select Continent--</option>
+          <option *ngFor="let region of regions" [value]="region">
+            {{ region }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-input" *ngIf="countriesByRegion.length > 0">
+        <label for="">Country</label>
+        <select formControlName="country">
+          <option value="">--Select Country--</option>
+          <option
+            *ngFor="let country of countriesByRegion"
+            [value]="country.cca3"
+          >
+            {{ country.name }}
+          </option>
+        </select>
+      </div>
+      <!-- <div class="form-input">
+        <label for="">Currency</label>
+        <select formControlName="currency">
+          <option value="">--currency--</option>
+           <option *ngFor="let country of countriesByRegion" [value]="country.cca3">{{country.name}}</option> 
+        </select>
+      </div> -->
+      <button>Send</button>
+    </form>
+  </div>
+</body>

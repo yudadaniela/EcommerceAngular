@@ -29,7 +29,8 @@ import { MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from './components/footer/footer.component';
-import { ModalDeleteComponent } from './product-admi/modal-delete/modal-delete.component'
+import { ModalDeleteComponent } from './product-admi/modal-delete/modal-delete.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ModalDeleteComponent } from './product-admi/modal-delete/modal-delete.c
     ModalComponent,
     FooterComponent,
     ModalDeleteComponent,
+    SignUpComponent,
     
   ],
   imports: [
