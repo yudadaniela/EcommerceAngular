@@ -6,25 +6,27 @@
         <label for="user">User</label>
         <input formControlName="user" id="user" type="text" />
       </div>
-      <div *ngIf="formLogin.get('user')?.hasError('required')">
-      Username is required 
+      <div class="required" *ngIf="formLogin.get('user')?.hasError('required')">
+        Username is required
       </div>
 
       <div class="form-input">
         <label for="password">Password</label>
-        <input formControlName="password" id="password" type="text" />
+        <input formControlName="password" id="password" type="password" />
       </div>
-      <div *ngIf="formLogin.get('password')?.hasError('required')">
+      <div class="required" *ngIf="formLogin.get('password')?.hasError('required')">
         Password is required
       </div>
-      <div *ngIf="formLogin.get('password')?.hasError('minlength')">
+      <div class="required" *ngIf="formLogin.get('password')?.hasError('minlength')">
         Password must be at least 6 characters
       </div>
 
       <li>
-        <a routerLink="/sign-up">create your account </a>
+        <a routerLink="/sign-up">Create your account </a>
       </li>
+      <div class="button">
       <button type="submit">Login</button>
+    </div>
     </form>
   </div>
 </body>

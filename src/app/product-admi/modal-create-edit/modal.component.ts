@@ -14,7 +14,7 @@ import { Subscriber } from 'rxjs';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent {
-formProducts: FormGroup;
+  formProducts: FormGroup;
   titleAction: string = 'New Product';
   buttonAction: string = 'Save';
   listProduct: ProductHome[] = [];
@@ -24,7 +24,7 @@ formProducts: FormGroup;
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private apiService: ApiServiceService,
-    @Inject(MAT_DIALOG_DATA)public dataProduct:ProductHome
+    @Inject(MAT_DIALOG_DATA) public dataProduct: ProductHome
   ) {
     this.formProducts = this.fb.group({
       category: ['', Validators.required],
@@ -60,32 +60,33 @@ formProducts: FormGroup;
       title: this.formProducts.value.title,
     };
     //this.modalRef.close(model)
-    if (this.dataProduct==null){
-    this.apiService.addData(model).subscribe((data) => {
-      //console.log('mensaje antes', data);
-     this.showAlert('product register', 'OK');
-      this.modalRef.close(data);
-    });
-  }else{
-    this.apiService.upDate(this.dataProduct.id,model).subscribe((data) => {
-      //console.log('mensaje antes', data);
-    this.showAlert('product update', 'OK');
-    this.modalRef.close('edit');
-    });
+    if (this.dataProduct == null) {
+      this.apiService.addData(model).subscribe((data) => {
+        //console.log('mensaje antes', data);
+        this.showAlert('product register', 'OK');
+        this.modalRef.close(data);
+      });
+    } else {
+      this.apiService.upDate(this.dataProduct.id, model).subscribe((data) => {
+        //console.log('mensaje antes', data);
+        this.showAlert('product update', 'OK');
+        this.modalRef.close('edit');
+      });
+    }
   }
-  }
-  ngOnInit():void{
-    if(this.dataProduct){
-        this.formProducts.patchValue({//actualizar partes específicas de un modelo de datos de control de formulario.
+  ngOnInit(): void {
+    if (this.dataProduct) {
+      this.formProducts.patchValue({
+        //actualizar partes específicas de un modelo de datos de control de formulario.
         //id:this.dataProduct.id,       //setvalue(), patchValue()
         category: this.dataProduct.category,
         description: this.dataProduct.description,
         image: this.dataProduct.image,
         price: this.dataProduct.price,
-        title: this.dataProduct.title
+        title: this.dataProduct.title,
       });
-      this.titleAction="Edit Product";
-      this.buttonAction="Update"
+      this.titleAction = 'Edit Product';
+      this.buttonAction = 'Update';
     }
   }
 }
