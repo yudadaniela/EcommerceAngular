@@ -5,11 +5,13 @@ import { LoginComponent } from './login/login/login.component';
 import { AdmiComponent } from './product-admi/admi/admi.component';
 import { ShoppingComponent } from './shopping-card/shopping/shopping.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { DescriptionComponent } from './home/description/description.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component:HomeComponent },
+  {path: 'description/:id', component:DescriptionComponent },
   {path: 'login', component:LoginComponent},
   {path: 'sign-up', component:SignUpComponent},
   {path: 'shopping', component: ShoppingComponent},

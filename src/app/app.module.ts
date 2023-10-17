@@ -30,7 +30,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalDeleteComponent } from './product-admi/modal-delete/modal-delete.component';
-import { SignUpComponent } from './login/sign-up/sign-up.component'
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { DescriptionComponent } from './home/description/description.component'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SignUpComponent } from './login/sign-up/sign-up.component'
     FooterComponent,
     ModalDeleteComponent,
     SignUpComponent,
+    DescriptionComponent,
     
   ],
   imports: [

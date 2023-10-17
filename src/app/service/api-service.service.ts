@@ -14,6 +14,9 @@ export class ApiServiceService {
   getData():Observable<ProductHome[]>{
     return this.http.get<ProductHome[]>(this.upiUrl)
   }
+  getDataId(id:number):Observable<ProductHome>{
+    return this.http.get<ProductHome>(`${this.upiUrl}/${id}`)
+  }
   addData(model:ProductHome):Observable<ProductHome>{
     return this.http.post<ProductHome>(this.upiUrl, model)
   }

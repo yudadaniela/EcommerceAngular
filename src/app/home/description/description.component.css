@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(6, 6, 6, 0.2);
+  padding: 20px;
+  width: 1000px;
+  height: 700px;
+  
+}
+.container_body{
+    display: flex;
+}
+h3 {
+  color: blue;
+  font-size: x-large;
+}
+img {
+  width: 500px;
+  height: 500px;
+}
+h4{
+    font-size: large;
+}
+p{
+    font-size: medium;
+}

@@ -7,11 +7,8 @@ import { CartService } from '../../service/cart.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  
-  constructor(private cartService: CartService) {
-    
-  }
-  shoppingCounter():number {
-   return this.cartService.counter();
+  constructor(private cartService: CartService) {}
+  shoppingCounter(): number {
+    return this.cartService.counter();
   }
 }

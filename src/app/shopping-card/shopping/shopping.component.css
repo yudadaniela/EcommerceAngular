@@ -27,3 +27,11 @@ h3 {
   padding: 10px;
   font-size: xx-large;
 }
+
+button{
+  background-color:#cc6e6b;
+  border:none ;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor:pointer;
+}

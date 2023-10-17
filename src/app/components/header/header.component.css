@@ -1,4 +1,3 @@
-
 .nav-link {
   color: #fae9e6;
   font-size: large;
@@ -11,15 +10,15 @@ img {
   background-color: rgb(32, 30, 27);
 }
 
-.counter{
-  padding:0;
+.counter {
+  padding: 0;
   margin: 0;
   background-color: #6f3247;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   display: flex;
-  justify-content: center;  
+  justify-content: center;
 }
 .nav {
   padding-right: 10px;

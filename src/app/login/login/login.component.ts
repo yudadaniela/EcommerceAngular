@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,8 +9,12 @@ export class LoginComponent {
   formLogin: FormGroup;
   constructor(private fb: FormBuilder) {
     this.formLogin = this.fb.group({
-      user: ['', Validators.required],
-      password: ['', Validators.required],
+      user: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+
+ onSumit (){
+  this.formLogin.markAllAsTouched()
+ }
 }

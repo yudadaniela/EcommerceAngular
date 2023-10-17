@@ -1,0 +1,14 @@
+<body *ngIf="car">
+  <div class="container">
+    <h3>{{ car.title }}</h3>
+    <div class="container_body">
+      <div class="image">
+        <img [src]="car.image" class="card-img" alt="..." />
+      </div>
+      <div class="container_description">
+        <h4>Category: {{ car.category }}</h4>
+        <p>{{ car.description }}</p>
+      </div>
+    </div>
+  </div>
+</body>

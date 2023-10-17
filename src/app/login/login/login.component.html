@@ -1,15 +1,26 @@
 <body>
   <div class="container">
     <h2>Login</h2>
-    <form [formGroup]="formLogin">
+    <form [formGroup]="formLogin" (ngSubmit)="onSumit()">
       <div class="form-input">
-        <label>User</label>
-        <input formControlName="user" type="text" />
+        <label for="user">User</label>
+        <input formControlName="user" id="user" type="text" />
       </div>
+      <div *ngIf="formLogin.get('user')?.hasError('required')">
+      Username is required 
+      </div>
+
       <div class="form-input">
-        <label>Password</label>
-        <input formControlName="password" type="text" />
+        <label for="password">Password</label>
+        <input formControlName="password" id="password" type="text" />
       </div>
+      <div *ngIf="formLogin.get('password')?.hasError('required')">
+        Password is required
+      </div>
+      <div *ngIf="formLogin.get('password')?.hasError('minlength')">
+        Password must be at least 6 characters
+      </div>
+
       <li>
         <a routerLink="/sign-up">create your account </a>
       </li>
