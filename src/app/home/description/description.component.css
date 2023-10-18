@@ -6,10 +6,10 @@ body {
 .container {
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(6, 6, 6, 0.2);
+  box-shadow: 0 2px 5px rgba(235, 62, 62, 0.2);
   padding: 20px;
   width: 1000px;
-  height: 700px;
+  height: 600px;
   
 }
 .container_body{
@@ -18,14 +18,23 @@ body {
 h3 {
   color: blue;
   font-size: x-large;
+  font-family:Georgia, 'Times New Roman', Times, serif
+  
 }
 img {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
+  padding: 25px ;
 }
 h4{
     font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #cc6e6b;
+    padding: 10 px;
 }
 p{
     font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5 px;
 }
+

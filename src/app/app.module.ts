@@ -31,7 +31,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalDeleteComponent } from './product-admi/modal-delete/modal-delete.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
-import { DescriptionComponent } from './home/description/description.component'
+import { DescriptionComponent } from './home/description/description.component';
+import { CounterComponent } from './components/counter/counter.component'
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DescriptionComponent } from './home/description/description.component'
     ModalDeleteComponent,
     SignUpComponent,
     DescriptionComponent,
+    CounterComponent,
     
   ],
   imports: [
