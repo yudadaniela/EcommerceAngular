@@ -7,8 +7,8 @@
 .button_1{
     width: 80px;
     height: 40px ;
-    background-color:#6f3247 ;
-    color: bisque;
+    background-color:#cc6e6b ;
+    color: #fae9e6;
     font-size: larger;
     border-top-left-radius:50%;
     border-bottom-left-radius: 50%;
@@ -16,7 +16,7 @@
 .button_2{
     width: 80px;
     height: 40px ;
-    background-color:#6f3247 ;
+    background-color: #cc6e6b ;
     color: bisque;
     font-size: larger;
     border-top-right-radius: 50%;

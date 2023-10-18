@@ -9,10 +9,11 @@
         <h4>Category: {{ car.category }}</h4>
         <p>{{ car.description }}</p>
         <span>{{ car.price | currency }}/USD</span>
-        <app-counter></app-counter>
-        <li class="nav">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </li>
+        <!-- <app-counter></app-counter> -->
+        <div class="button">
+          <button (click)="addCart(car)">Add</button>
+        </div>
+        
       </div>
     </div>
   </div>

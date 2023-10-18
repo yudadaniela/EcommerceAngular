@@ -12,9 +12,9 @@ body {
   height: 600px;
   
 }
-.container_body{
+ .container_body{
     display: flex;
-}
+} 
 h3 {
   color: blue;
   font-size: x-large;
@@ -26,6 +26,10 @@ img {
   height: 400px;
   padding: 25px ;
 }
+.container_description{
+  justify-content: center;
+  align-items: center;
+}
 h4{
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -36,5 +40,22 @@ p{
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 5 px;
+}
+span{
+  color: #a52a2a; 
+  padding: 20% 5%;
+  font-size: larger;
+}
+.button{
+  display: flex;
+  justify-content: center;
+}
+button{
+  background-color: #6f3247;
+  color:#fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 

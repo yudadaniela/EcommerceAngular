@@ -34,7 +34,7 @@ export class LoginComponent {
       const password= this.formLogin.get('password')!.value
       if(user==='yuda'&& password==='123456'){
         this.showMesagge('Login','OK')
-        this.router.navigate(['/home'])
+        this.router.navigate(['/administration'])
       }else{
         this.showMesagge('Login','YOU ARE NOT REGISTERED')
       }
