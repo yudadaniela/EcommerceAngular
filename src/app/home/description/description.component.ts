@@ -1,11 +1,11 @@
-import { ProductHome } from 'src/app/interface/products-home';
+import { ProductHome } from 'src/app/interfaces/products-home';
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from 'src/app/service/api-service.service';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CartService } from 'src/app/service/cart.service';
-import { ItemCar } from "../../interface/item-Cart";
-import { CounterComponent } from '../../components/counter/counter.component';
+import { CartService } from 'src/app/services/cart.service';
+import { ItemCar } from "../../interfaces/cart-items";
+
 
 @Component({
   selector: 'app-description',
@@ -13,7 +13,7 @@ import { CounterComponent } from '../../components/counter/counter.component';
   styleUrls: ['./description.component.css']
 })
 export class DescriptionComponent implements OnInit {
-  car:ProductHome|undefined
+  itemCar:ProductHome|undefined
   subscription!: Subscription;
   
   constructor(
@@ -41,7 +41,7 @@ export class DescriptionComponent implements OnInit {
   ngOnInit(): void {
     const id: number | null = Number(this.route.snapshot.paramMap.get('id'));
     this.subscription = this.apiService.getDataId(id).subscribe((data)=>{
-    this.car=data
+    this.itemCar=data
     })
 
   }

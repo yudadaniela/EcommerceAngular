@@ -15,7 +15,7 @@ body{
     box-shadow: 0 2px 5px rgba(10, 10, 10, 0.2);
     padding: 20px;
     width: 350px;
-    height: 500px;
+    height: 550px;
     text-align: center;
 } 
 h2{
@@ -55,3 +55,10 @@ li{
 button:hover{
     background-color: #c33117;
 }
+.required {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: small;
+    color: #c33117;
+    text-align: center;
+  }

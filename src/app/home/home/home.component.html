@@ -1,9 +1,9 @@
-<div class="container">
+<!-- <div class="container">
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col" *ngFor="let datum of data">
    
     <div class="card h-100" >
-      <img [src]="datum.image" class="card-img" alt="..." />
+      <img [src]="datum.image" class="card-img" alt="card-img" />
       <div class="card-body">
         <a routerLink="/description/{{datum.id}}"><h5 class="card-title">{{ datum.title }}</h5></a>
         <p class="card-text">{{ datum.description.length >100 ? (datum.description|slice:0:100)+'...':datum.description }}</p>
@@ -13,5 +13,22 @@
     </div>
   </div>
 </div>
+</div> -->
+
+ <div class="container">
+<div class="row g-4">
+  <div class="col-12 col-md-4 " *ngFor="let datum of data">
+   
+    <div class="card h-100" >
+      <img [src]="datum.image" img-fluid class="card-img" alt="card-img" />
+      <div class="card-body">
+        <a routerLink="/description/{{datum.id}}"><h5 class="card-title">{{ datum.title }}</h5></a>
+        <p class="card-text">{{ datum.description.length >100 ? (datum.description|slice:0:100)+'...':datum.description }}</p>
+        <h6 class="card-price ">{{ datum.price | currency }}</h6>
+        <button (click)="addToCar(datum)" class="btn btn-primary card-button"  ><mat-icon>shopping_cart</mat-icon></button>
+      </div>
+    </div>
+  </div>
 </div>
+</div> 
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Region, SmallCountry, Country } from "../interface/country-interface";
+import { Region, SmallCountry, Country } from "../interfaces/country-interface";
 import { Observable, of, tap, map } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 

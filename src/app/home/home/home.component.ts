@@ -1,10 +1,8 @@
-import { ApiServiceService } from './../../service/api-service.service';
+import { ApiServiceService } from '../../services/api-service.service';
 import { Component, OnInit } from '@angular/core';
-import { Subscriber } from 'rxjs';
-import { ProductHome } from 'src/app/interface/products-home';
-import { ItemCar } from '../../interface/item-Cart';
-import { JsonPipe } from '@angular/common';
-import { CartService } from '../../service/cart.service';
+import { ProductHome } from 'src/app/interfaces/products-home';
+import { ItemCar } from '../../interfaces/cart-items';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +28,7 @@ export class HomeComponent implements OnInit {
 
     this.cartService.addToCartLocalStorage(shopping);
     this.cartService.total();
-    this.cartService.counter()
+    this.cartService.counter();
   }
 
   ngOnInit(): void {

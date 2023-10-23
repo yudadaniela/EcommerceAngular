@@ -1,17 +1,17 @@
-<body *ngIf="car">
+<body *ngIf="itemCar">
   <div class="container">
-    <h3>{{ car.title }}</h3>
+    <h3>{{ itemCar.title }}</h3>
     <div class="container_body">
       <div class="image">
-        <img [src]="car.image" class="card-img" alt="..." />
+        <img [src]="itemCar.image" class="card-img" alt="..." />
       </div>
       <div class="container_description">
-        <h4>Category: {{ car.category }}</h4>
-        <p>{{ car.description }}</p>
-        <span>{{ car.price | currency }}/USD</span>
+        <h4>Category: {{ itemCar.category }}</h4>
+        <p>{{ itemCar.description }}</p>
+        <span>{{ itemCar.price | currency }}/USD</span>
         <!-- <app-counter></app-counter> -->
         <div class="button">
-          <button (click)="addCart(car)">Add</button>
+          <button (click)="addCart(itemCar)">Add</button>
         </div>
         
       </div>
