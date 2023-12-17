@@ -1,8 +1,8 @@
 import { Subscriber, Observable } from 'rxjs';
 import { Component} from '@angular/core';
 import { HomeComponent } from '../../home/home/home.component';
-import { ItemCar } from '../../interfaces/cart-items';
-import { CartService } from '../../services/cart.service';
+import { ItemCar } from '../../../Models/cart-items';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-shopping',

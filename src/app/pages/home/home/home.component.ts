@@ -1,8 +1,9 @@
-import { ApiServiceService } from '../../services/api-service.service';
+//componente contenedor 
+import { ApiServiceService } from '../../../services/api-service.service';
 import { Component, OnInit } from '@angular/core';
-import { ProductHome } from 'src/app/interfaces/products-home';
-import { ItemCar } from '../../interfaces/cart-items';
-import { CartService } from '../../services/cart.service';
+import { ProductHome } from 'src/app/Models/products-home';
+import { ItemCar } from '../../../Models/cart-items';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-home',

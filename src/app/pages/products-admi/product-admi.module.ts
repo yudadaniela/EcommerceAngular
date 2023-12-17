@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
+import { AppRoutingModule } from '../../app-routing.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from '@angular/forms';
 
 
-import { AdmiComponent } from '../product-admi/home-admi/admi.component';
-import { ModalComponent } from '../product-admi/modal-create-edit/modal.component';
-import { ModalDeleteComponent } from '../product-admi/modal-delete/modal-delete.component';
+import { AdmiComponent } from '../products-admi/home-admi/admi.component';
+import { ModalComponent } from '../products-admi/modal-create-edit/modal.component';
+import { ModalDeleteComponent } from '../products-admi/modal-delete/modal-delete.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule} from '@angular/material/table';

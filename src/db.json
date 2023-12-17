@@ -87,6 +87,14 @@
       "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
       "price": 7.96,
       "title": "Opna Women's Short Sleeve Moisture"
+    },
+    {
+      "category": "jewelery",
+      "id": 13,
+      "description": "hola",
+      "image": "fhhjk",
+      "price": 123,
+      "title": "hola"
     }
   ]
 }

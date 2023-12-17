@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ShoppingComponent } from '../shopping-card/shopping/shopping.component';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../app-routing.module';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 

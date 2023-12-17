@@ -1,8 +1,8 @@
 import { ModalComponent } from '../modal-create-edit/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { ProductHome } from '../../interfaces/products-home';
-import { ApiServiceService } from '../../services/api-service.service';
+import { ProductHome } from '../../../Models/products-home';
+import { ApiServiceService } from '../../../services/api-service.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 

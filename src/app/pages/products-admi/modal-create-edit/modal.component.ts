@@ -4,8 +4,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { ApiServiceService } from '../../services/api-service.service';
-import { ProductHome } from '../../interfaces/products-home';
+import { ApiServiceService } from '../../../services/api-service.service';
+import { ProductHome } from '../../../Models/products-home';
 import { Subscriber } from 'rxjs';
 
 @Component({

@@ -1,10 +1,10 @@
-import { ProductHome } from 'src/app/interfaces/products-home';
+import { ProductHome } from 'src/app/Models/products-home';
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
-import { ItemCar } from "../../interfaces/cart-items";
+import { ItemCar } from "../../../Models/cart-items";
 
 
 @Component({

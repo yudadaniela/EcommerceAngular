@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { CounterComponent } from './components/counter/counter.component'
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { CounterComponent } from './shared/components/counter/counter.component'
 
-import { HomeModule } from "./home/home.module";
-import { LoginModule } from "./login/login.module";
-import { ProductAdmiModule } from "./product-admi/product-admi.module";
-import { ShoppingCardModule } from "./shopping-card/shopping-card.module";
+import { HomeModule } from "./pages/home/home.module";
+import { LoginModule } from "./pages/login/login.module";
+import { ProductAdmiModule } from "./pages/products-admi/product-admi.module";
+import { ShoppingCardModule } from "./pages/shopping-card/shopping-card.module";
 
 @NgModule({
   declarations: [
