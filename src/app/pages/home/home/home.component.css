@@ -1,0 +1,41 @@
+ .container{
+  padding: 15px;
+  background-color: #eeee;
+ 
+}
+.card{
+    border-radius: 10px;
+   
+}
+.card-img{
+height: 20rem;
+}
+.card-body{
+    background-color: eeee;
+}
+.card-title{
+    font-size: large;
+}
+.card-text{
+    font-size: small;
+}
+.card-price{
+    font-size: large;
+}
+a{
+    color: black;
+}
+  button{
+    background-color: rgb(214, 105, 118);
+    border: rgb(214, 105, 118);
+    color: aliceblue;
+    width: 30%;
+    border-radius: 50%;
+}   
+
+.card-button{
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+}

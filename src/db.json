@@ -65,14 +65,6 @@
       "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg"
     },
     {
-      "id": 9,
-      "title": "WD 2TB Elements Portable External Hard Drive - USB 3.0 ",
-      "price": 64,
-      "description": "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
-      "category": "electronics",
-      "image": "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg"
-    },
-    {
       "id": 10,
       "title": "SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s",
       "price": 109,
@@ -97,12 +89,12 @@
       "title": "Opna Women's Short Sleeve Moisture"
     },
     {
-      "category": "women's clothing",
+      "category": "jewelery",
       "id": 13,
-      "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
-      "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
-      "price": 13,
-      "title": "DANVOUY Womens T Shirt Casual Cotton Short"
+      "description": "hola",
+      "image": "fhhjk",
+      "price": 123,
+      "title": "hola"
     }
   ]
 }
