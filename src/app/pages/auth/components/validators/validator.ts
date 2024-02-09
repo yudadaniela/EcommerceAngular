@@ -29,15 +29,12 @@ export function createPasswordStrengthValidator(): ValidatorFn {
 }
 export const emailPattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
 
-export function passwordMatchValidator(firtsInput:string, secondInput:string):ValidatorFn{
+export function passwordMatchValidator():ValidatorFn{
     return (control:AbstractControl) : ValidationErrors | null => {
-    const firts = control.get(firtsInput)
-    const second = control.get(secondInput)
-    if(firts?.value===second?.value){
-        return null
-    } else {
-        return {notMatch:true}
-    }
+    const password = control.get('password')
+    const confirmPasword = control.get('confirmPasword')
+    return password && confirmPasword && 
+    password.value === confirmPasword.value?null:{notMatch:true}
         
  }
 }

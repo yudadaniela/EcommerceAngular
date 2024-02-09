@@ -10,13 +10,15 @@ import { AppRoutingModule } from '../../app-routing.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RegionFormComponent } from './components/region-form/region-form.component';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    RegionFormComponent
   ],
   imports: [
     CommonModule,

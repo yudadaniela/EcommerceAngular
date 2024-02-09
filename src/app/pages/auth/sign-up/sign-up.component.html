@@ -157,8 +157,7 @@
       </div>
       <div
         class="required"
-        *ngIf="formRegister.get('confirmPassword')?.errors?.['notMatch']
-        &&formRegister.get('confirmPassword')?.touched"  
+        *ngIf="formRegister.errors?.['notMatch'] && (formRegister.touched || formRegister.dirty)"  
       >
         no match 
       </div>
