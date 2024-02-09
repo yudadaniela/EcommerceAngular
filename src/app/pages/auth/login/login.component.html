@@ -1,0 +1,64 @@
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form
+      [formGroup]="formLogin"
+      (ngSubmit)="onSumit(email.value, password.value)"
+    >
+      <div class="form-input">
+        <label for="email">Email</label>
+        <input formControlName="email" id="email" type="email" #email />
+        <div
+          *ngIf="
+            formLogin.controls['email'].invalid &&
+            (formLogin.controls['email'].dirty ||
+              formLogin.controls['email'].touched)
+          "
+        >
+          <div class="required" *ngIf="formLogin.controls['email'].errors">
+            Email is required
+          </div>
+          <div
+            class="required"
+            *ngIf="formLogin.get('email')?.hasError('email')"
+          >
+            Email should be valid
+          </div>
+        </div>
+      </div>
+
+      <div class="form-input">
+        <label for="password">Password</label>
+        <input
+          formControlName="password"
+          id="password"
+          type="password"
+          #password
+        />
+      </div>
+      <div
+        class="required"
+        *ngIf="
+          formLogin.controls['password'].invalid &&
+          (formLogin.controls['password'].dirty ||
+            formLogin.controls['password'].touched)
+        "
+      >
+        Password is required
+      </div>
+      <div
+        class="required"
+        *ngIf="formLogin.get('password')?.hasError('minlength')"
+      >
+        Password must be at least 8 characters
+      </div>
+
+      <li>
+        <a routerLink="/sign-up">Create your account </a>
+      </li>
+      <div class="button">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</body>

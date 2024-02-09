@@ -10,9 +10,14 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CounterComponent } from './shared/components/counter/counter.component'
 
 import { HomeModule } from "./pages/home/home.module";
-import { LoginModule } from "./pages/login/login.module";
+import { LoginModule } from "./pages/auth/login.module";
 import { ProductAdmiModule } from "./pages/products-admi/product-admi.module";
 import { ShoppingCardModule } from "./pages/shopping-card/shopping-card.module";
+
+import { provideFirebaseApp,  initializeApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { environment } from '../assets/environments/environments';
+import { AngularFireModule } from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -29,8 +34,11 @@ import { ShoppingCardModule } from "./pages/shopping-card/shopping-card.module";
     HomeModule,
     LoginModule,
     ProductAdmiModule,
-    ShoppingCardModule
+    ShoppingCardModule,
+    provideFirebaseApp(() => initializeApp( environment.firebase )),
+    provideAuth(() => getAuth()),
     
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]
