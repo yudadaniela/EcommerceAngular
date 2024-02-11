@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
+
 
 import { AppRoutingModule } from '../../app-routing.module';
 
 import { DescriptionComponent } from "../home/description/description.component";
-import { HomeComponent } from "../home/home/home.component";
+import { HomeComponent } from "./home-principal/home.component";
 import { MatIconModule } from '@angular/material/icon';
+import { HomeRoutingModule } from "./home-routing.module";
+
+
 
 @NgModule({
   declarations: [
@@ -16,9 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
-    MatIconModule,
-    BrowserModule,
-    AppRoutingModule
+    MatIconModule, 
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }

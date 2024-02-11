@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../../app-routing.module';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { AppRoutingModule } from '../../app-routing.module';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from '@angular/forms';
 
@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProductsAdmiRoutingModule } from './products-admi-routing.module';
 
 
 @NgModule({
@@ -33,8 +34,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   ],
   imports: [
     CommonModule,
-    BrowserModule,
-    AppRoutingModule,
+    ProductsAdmiRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,

@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ShoppingComponent } from '../shopping-card/shopping/shopping.component';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from '../../app-routing.module';
-
-
+// import { BrowserModule } from '@angular/platform-browser';
+// import { AppRoutingModule } from '../../app-routing.module';
+import { ShoppingCardRoutingModule } from './shopping-card-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +13,7 @@ import { AppRoutingModule } from '../../app-routing.module';
   ],
   imports: [
     CommonModule,
-    BrowserModule,
-    AppRoutingModule,
+   ShoppingCardRoutingModule
   ]
 })
 export class ShoppingCardModule { }
