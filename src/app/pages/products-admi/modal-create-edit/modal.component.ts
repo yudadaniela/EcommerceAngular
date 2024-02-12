@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { ApiServiceService } from '../../../services/api-service.service';
+import { ApiProductsService } from '../../../services/api-products.service';
 import { ProductHome } from '../../../Models/products-home';
 import { Subscriber } from 'rxjs';
 
@@ -23,7 +23,7 @@ export class ModalComponent {
     private modalRef: MatDialogRef<ModalComponent>, //*** */
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
-    private apiService: ApiServiceService,
+    private apiService: ApiProductsService,
     @Inject(MAT_DIALOG_DATA) public dataProduct: ProductHome
   ) {
     this.formProducts = this.fb.group({

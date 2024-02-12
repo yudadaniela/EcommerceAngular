@@ -3,7 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { ApiServiceService } from '../../../services/api-service.service';
+import { ApiProductsService } from '../../../services/api-products.service';
 import { ProductHome } from '../../../Models/products-home';
 
 

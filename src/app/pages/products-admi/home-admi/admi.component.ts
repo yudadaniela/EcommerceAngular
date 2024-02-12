@@ -2,7 +2,7 @@ import { ModalComponent } from '../modal-create-edit/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ProductHome } from '../../../Models/products-home';
-import { ApiServiceService } from '../../../services/api-service.service';
+import { ApiProductsService } from '../../../services/api-products.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ModalDeleteComponent } from '../modal-delete/modal-delete.component';
 
@@ -17,7 +17,7 @@ export class AdmiComponent implements OnInit {
   dataSource = new MatTableDataSource<ProductHome>();
 
   constructor(
-    private apiservice: ApiServiceService,
+    private apiservice: ApiProductsService,
     public dialog: MatDialog
   ) {}
   ngOnInit(): void {
