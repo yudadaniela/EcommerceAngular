@@ -37,7 +37,7 @@ import { ProductsAdmiRoutingModule } from './products-admi-routing.module';
     ProductsAdmiRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     MatTableModule,
     MatInputModule,
     MatFormFieldModule,

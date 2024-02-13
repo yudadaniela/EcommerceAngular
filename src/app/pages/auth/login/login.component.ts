@@ -29,14 +29,32 @@ export class LoginComponent {
       duration: 3000,
     });
   }
-  onSumit(email: string, password: string) {
-    //this.formLogin.markAllAsTouched();
-    const emailAndPassword = { email: email, password: password };
-    this.authService
-      .login(emailAndPassword.email, emailAndPassword.password)
-      .then((response) => {
-        console.log(response, 'ok');
-      })
-      .catch((error) => console.log(error));
+  onSumit() {
+   const email = this.formLogin.get('email')?.value;
+   console.log(email);
+   const password = this.formLogin.get('password')?.value;
+   console.log(password);
+   this.authService.login(email, password).subscribe((login)=>{
+    // login?this.router.navigate(['/admi']):this.router.navigate(['/register'])
+    console.log(login);
+    
+    if(login){
+      console.log('se hizo login'); 
+      this.router.navigate(['/admi'])
+    }else{
+      console.log('no se ha registrado');
+      this.router.navigate(['/sign-up'])
+    }
+   },(error)=>{
+    console.log("error durante el inicio de sesion", error);
+    })
   }
 }
+ //this.formLogin.markAllAsTouched();
+    // const emailAndPassword = { email: email, password: password };
+    // this.authService
+    //   .login(emailAndPassword.email, emailAndPassword.password)
+    //   .then((response) => {
+    //     console.log(response, 'ok');
+    //   })
+    //   .catch((error) => console.log(error));

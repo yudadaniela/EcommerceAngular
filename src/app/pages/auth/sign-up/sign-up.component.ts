@@ -7,7 +7,7 @@ import {
   Currencies,
   Name,
 } from '../../../Models/country-interface';
-import { filter, switchMap, tap } from 'rxjs';
+import { filter, switchMap, tap, Subscriber } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {
@@ -61,52 +61,52 @@ export class SignUpComponent implements OnInit {
     });
   }
   onSubmit(email: string, password: string) {
-    const emailAndPassword = { email: email, password: password };
-    console.log(emailAndPassword);
-    this.authService
-      .createUser(emailAndPassword.email, emailAndPassword.password)
-      .then((response) => {
-        console.log(response);
-        this.showMesagge('Register', 'Successful Registration');
-      })
-      .catch((error) =>
-        this.showMesagge('opps', 'Your email is not registered')
-      );
+    // const emailAndPassword = { email: email, password: password };
+    // console.log(emailAndPassword);
+    // this.authService
+    //   .createUser(emailAndPassword.email, emailAndPassword.password)
+    //   .then((response) => {
+    //     console.log(response);
+    //     this.showMesagge('Register', 'Successful Registration');
+    //   })
+    //   .catch((error) =>
+    //     this.showMesagge('opps', 'Your email is not registered')
+    //   );
   }
   ngOnInit(): void {
-    this.onRegionChanged();
-    this.onCountryChange();
+    //  this.onRegionChanged();
+    //  this.onCountryChange();
   }
 
-  get regions(): Region[] {
-    return this.countryService.regions;
-  }
+  // get regions(): Region[] {
+  //   return this.countryService.regions;
+  // }
 
-  onRegionChanged(): void {
-    this.formRegister
-      .get('region')!
-      .valueChanges.pipe(
-        tap(() => this.formRegister.get('country')!.setValue('')),
-        switchMap((region) => this.countryService.getCountriesByRegion(region))
-      )
-      .subscribe((countries) => {
-        this.countriesByRegion = countries;
-      });
-  }
+  // onRegionChanged(): void {
+  //   this.formRegister
+  //     .get('region')!
+  //     .valueChanges.pipe(
+  //       tap(() => this.formRegister.get('country')!.setValue('')),
+  //       switchMap((region) => this.countryService.getCountriesByRegion(region))
+  //     )
+  //     .subscribe((countries) => {
+  //       this.countriesByRegion = countries;
+  //     });
+  // }
 
-  onCountryChange(): void {
-    this.formRegister
-      .get('country')!
-      .valueChanges.pipe(
-        tap(() => this.formRegister.get('currency')!.setValue('')),
-        filter((value: string) => value.length > 0),
-        switchMap((alphaCode) =>
-          this.countryService.getCountryAlphaCode(alphaCode)
-        )
-      )
-      .subscribe((country) => {
-        console.log({ currency: country.currencies });
-        //this.currencyCountry=country.currencies
-      });
-  }
+  // onCountryChange(): void {
+  //   this.formRegister
+  //     .get('country')!
+  //     .valueChanges.pipe(
+  //       tap(() => this.formRegister.get('currency')!.setValue('')),
+  //       filter((value: string) => value.length > 0),
+  //       switchMap((alphaCode) =>
+  //         this.countryService.getCountryAlphaCode(alphaCode)
+  //       )
+  //     )
+  //     .subscribe((country) => {
+  //       console.log({ currency: country.currencies });
+  //       //this.currencyCountry=country.currencies
+  //     });
+  // }
 }

@@ -6,8 +6,9 @@ export interface User {
     email: string,
     password:string,
     confirmPassword:string,
+    role:string,
     gender?:string,
-    location:Location
+    location?:Location
 }
 export interface Location{
     region:string,

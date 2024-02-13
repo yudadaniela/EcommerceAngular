@@ -13,6 +13,7 @@ import { HomeModule } from "./pages/home/home.module";
 import { LoginModule } from "./pages/auth/login.module";
 import { ProductAdmiModule } from "./pages/products-admi/product-admi.module";
 import { ShoppingCardModule } from "./pages/shopping-card/shopping-card.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { provideFirebaseApp,  initializeApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -29,6 +30,7 @@ import { AngularFireModule } from "@angular/fire/compat";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule, 
     HttpClientModule,
     HomeModule,

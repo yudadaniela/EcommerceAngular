@@ -9,10 +9,15 @@ const routes: Routes = [
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () =>
       import('./pages/auth/login.module').then((m) => m.LoginModule),
   },
+  // {
+  //   path: 'sign-up',
+  //   loadChildren: () =>
+  //     import('./pages/auth/login.module').then((m) => m.LoginModule),
+  // },
   {
     path: 'shopping',
     loadChildren: () =>
