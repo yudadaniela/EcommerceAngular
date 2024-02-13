@@ -22,7 +22,7 @@
     <div class="card h-100" >
       <img [src]="datum.image" img-fluid class="card-img" alt="card-img" />
       <div class="card-body">
-        <a routerLink="/description/{{datum.id}}"><h5 class="card-title">{{ datum.title }}</h5></a>
+        <a routerLink="/home/description/{{datum.id}}"><h5 class="card-title">{{ datum.title }}</h5></a>
         <p class="card-text">{{ datum.description.length >100 ? (datum.description|slice:0:100)+'...':datum.description }}</p>
         <h6 class="card-price ">{{ datum.price | currency }}</h6>
         <button (click)="addToCar(datum)" class="btn btn-primary card-button"  ><mat-icon>shopping_cart</mat-icon></button>

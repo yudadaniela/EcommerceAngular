@@ -4,7 +4,11 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home-principal/home.component';
 
 const routes:Routes=[
-  {path: '',
+  {path: 'home',
+  component:HomeComponent},
+  {path: 'description/:id',
+  component:HomeComponent},
+  {path: '**',
   component:HomeComponent}, 
 ]
 @NgModule({
