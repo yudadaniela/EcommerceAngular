@@ -20,6 +20,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../assets/environments/environments';
 import { AngularFireModule } from "@angular/fire/compat";
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     HeaderComponent,
     FooterComponent,
     CounterComponent,
+    SearchBarComponent,
     
   ],
   imports: [
