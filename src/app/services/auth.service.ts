@@ -27,17 +27,17 @@ export class AuthService {
   private setAccesToken(){
     localStorage.setItem('access_token', this.tokenGenerate())
   }
-  private getAccessToken(){
-    localStorage.getItem('access_token')
+  private getAccessToken():string | null {
+    return localStorage.getItem('access_token')
   }
-  createUser(user:User):Observable<any>{
-   return this.http.post(this.apiUrl, user)
+  createUser(user:User):Observable<User>{
+   return this.http.post<User>(this.apiUrl, user)
    
   }
-  getUsers():Observable<any>{
+  getUsers():Observable<User[]>{
     this.users = this.http.get(this.apiUrl)
     console.log(this.users);
-    return this.http.get(this.apiUrl)
+    return this.http.get<User[]>(this.apiUrl)
     
   }
   login(email:string, password:string): Observable<boolean>{
@@ -64,11 +64,11 @@ export class AuthService {
    }))
   }
   
-  // ifAuthentication(): boolean{
+  ifAuthentication(): boolean{
     
-  //   const token = this.getAccessToken();
-  //   return this.isLoggedIn;
-  // }
+    const token = this.getAccessToken();
+    return !!token;
+  }
   logout(){
    this. isLoggedIn = false;
    this.currentUser = null;

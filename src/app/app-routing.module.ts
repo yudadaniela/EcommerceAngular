@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { admiGuard } from './guards/admi.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -26,8 +27,10 @@ const routes: Routes = [
       import('./pages/products-admi/product-admi.module').then(
         (m) => m.ProductAdmiModule
       ),
+      canActivate:[admiGuard]
   },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  
 ];
 
 @NgModule({

@@ -15,6 +15,9 @@ import {
   emailPattern,
   passwordMatchValidator,
 } from '../components/validators/validator';
+import { RegionFormComponent } from '../components/region-form/region-form.component';
+import { User } from 'src/app/Models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +25,7 @@ import {
   styleUrls: ['./sign-up.component.css'],
 })
 
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   public countriesByRegion: SmallCountry[] = [];
   //public currencyCountry:SmallCountry[]=[]
   signupForm:FormGroup
@@ -30,7 +33,9 @@ export class SignUpComponent {
     private fb: FormBuilder,
    // private countryService: CountriesService,
     private authService: AuthService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private locationForm:RegionFormComponent,
+    private router:Router
   ) {
     this.signupForm = this.fb.group({
         informationUser:this.fb.group({
@@ -48,9 +53,9 @@ export class SignUpComponent {
         ],
         confirmPassword: ['', [Validators.required]],
       }),
-        region:this.fb.group({
-        region: ['', [Validators.required]],
-        country: ['', [Validators.required]],
+        location:this.fb.group({
+        region: [''],
+        country: [''],
       })
         
       });
@@ -62,7 +67,20 @@ export class SignUpComponent {
       duration: 3000,
     });
   }
-  // onSubmit(email: string, password: string) {
+   onSubmit() {
+    
+    if(this.signupForm.valid){
+     
+      const userData = this.signupForm.value 
+         
+        this.authService.createUser(userData).subscribe((createdUser)=>{
+          console.log('usuario creado', createdUser)
+          this.router.navigate(['/auth/login'])
+        }
+        )
+         
+     
+    }
   //   // const emailAndPassword = { email: email, password: password };
   //   // console.log(emailAndPassword);
   //   // this.authService
@@ -74,11 +92,17 @@ export class SignUpComponent {
   //   //   .catch((error) =>
   //   //     this.showMesagge('opps', 'Your email is not registered')
   //   //   );
-  // }
-  // ngOnInit(): void {
+   }
+   ngOnInit(): void {
+   this.locationForm.locationDataChange.subscribe(locationData =>{
+    this.signupForm.get('locationData')?.patchValue(locationData)
+   })
   //   //  this.onRegionChanged();
   //   //  this.onCountryChange();
-  // }
+  }
+  UpdateLocation(){
+
+  }
 
   // get regions(): Region[] {
   //   return this.countryService.regions;

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { ControlContainer, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { filter, switchMap, tap } from 'rxjs';
 import { Region, SmallCountry } from 'src/app/Models/country-interface';
 import { CountriesService } from 'src/app/services/countries.service';
@@ -7,11 +7,20 @@ import { CountriesService } from 'src/app/services/countries.service';
 @Component({
   selector: 'app-region-form',
   templateUrl: './region-form.component.html',
-  styleUrls: ['./region-form.component.css']
+  styleUrls: ['./region-form.component.css'],
+  // changeDetection:ChangeDetectionStrategy.OnPush,
+  // viewProviders:[
+  //   {
+  //     provide:ControlContainer,
+  //     useFactory:()=>
+  //     inject(ControlContainer,{skipSelf:true, host:true})
+  //   }
+  // ]
 })
 export class RegionFormComponent implements OnInit{
   public countriesByRegion:SmallCountry[]=[]
-  
+ @Input() groupName = '' 
+ @Output() locationDataChange:EventEmitter<any> = new EventEmitter<any>() 
   constructor(
     private fb:FormBuilder,
     private countryService:CountriesService,
@@ -22,17 +31,32 @@ export class RegionFormComponent implements OnInit{
   })
 
   ngOnInit(): void {
+    const predeterminedRegion = '';
+    const predeterminedCountry = ''
+
+    this.formRegion = this.fb.group({
+      region:[predeterminedRegion, [Validators.required]],
+      country:[predeterminedCountry, [Validators.required]]
+    })
+    console.log('formulario inicial', this.formRegion.value);
+
+    this.formRegion.valueChanges.subscribe(()=>{
+     this.emitLocationData();
+    })
+
+    this.regions
     this.onRegionChanged()
-    this.onCountryChange()
+    
    }
-  get regions():Region[]{
+  
+   get regions():Region[]{
     return this.countryService.regions
    } 
  
    onRegionChanged():void{
      this.formRegion.get('region')!.valueChanges
      .pipe(
-       tap(()=>this.formRegion.get('country')!.setValue('')),
+       //tap(()=>this.formRegion.get('country')!.setValue('')),
        switchMap(region=>this.countryService.getCountriesByRegion(region))
      )
      .subscribe(countries=>{
@@ -41,17 +65,12 @@ export class RegionFormComponent implements OnInit{
      })
    }
  
-   onCountryChange():void{
-     this.formRegion.get('country')!.valueChanges
-     .pipe(
-       tap(()=>this.formRegion.get('currency')!.setValue('')),
-       filter((value:string)=>value.length>0),
-       switchMap(alphaCode=>this.countryService.getCountryAlphaCode(alphaCode))
-     )
-     .subscribe(country=>{
-      console.log({currency:country.currencies});
-      //this.currencyCountry=country.currencies
-       
-     })
+
+   emitLocationData(){
+    const location={
+      region:this.formRegion.value.region,
+      country:this.formRegion.value.country
+    }
+    this.locationDataChange.emit(location)
    }
 }

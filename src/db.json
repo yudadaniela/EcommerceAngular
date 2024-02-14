@@ -129,6 +129,22 @@
         "country": "Colombia"
       },
       "id": "e631"
+    },
+    {
+      "id": "6c9e",
+      "informationUser": {
+        "firtName": "yurani",
+        "secondName": "daniela",
+        "surtName": "nieto",
+        "secondSurtname": "castro",
+        "email": "yuda@hotmail.com",
+        "password": "Dani.92123124474",
+        "confirmPassword": "Dani.92123124474"
+      },
+      "location": {
+        "region": "",
+        "country": ""
+      }
     }
   ]
 }

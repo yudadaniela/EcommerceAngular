@@ -27,9 +27,9 @@ return this.http.get<Country[]>(url)
   map(countries=> countries.map(country=>({
    name:country.name.common,
    cca3:country.cca3, 
-   borders:country.borders ?? [],
+   borders:country.borders ?? [],//operador de covalencia nula, evalua si es nulo 
    currency:country.currencies
-  }))),//regreza lo que nosotros queramos 
+  }))),//regreza lo que nosotros queramos, transforma la data 
   
 )
 }
