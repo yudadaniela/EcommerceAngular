@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common';
 
 
 const routes:Routes=[
-  {path: '',
-   component:LoginComponent},
+  
    {path: 'login',
    component:LoginComponent},
    {path: 'sign-up',
    component:SignUpComponent},
+   {path: '**',
+   component:LoginComponent}
  
 ]
 @NgModule({

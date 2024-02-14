@@ -1,5 +1,5 @@
 //componente contenedor 
-import { ApiServiceService } from '../../../services/api-service.service';
+import { ApiProductsService } from '../../../services/api-products.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductHome } from 'src/app/Models/products-home';
 import { ItemCar } from '../../../Models/cart-items';
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   data: any;
   constructor(
     private cartService: CartService,
-    private apiService: ApiServiceService
+    private apiService: ApiProductsService
   ) {}
 
   addToCar(item: ProductHome) {

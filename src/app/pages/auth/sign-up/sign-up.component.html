@@ -1,189 +1,164 @@
 <body>
   <div class="container">
     <h2>Sign-up</h2>
-
     <form
-      [formGroup]="formRegister"
-      (ngSubmit)="onSubmit(email.value, password.value)"
+      [formGroup]="signupForm"
+      (ngSubmit)="onSubmit()"
     >
-      <div class="form-input">
-        <label for="firtName">Firts Name</label>
-        <input type="text" formControlName="firtName" id="firtName" />
-      </div>
-      <div
-        class="required"
-        *ngIf="
-          formRegister.controls['firtName'].invalid &&
-          (formRegister.controls['firtName'].dirty ||
-            formRegister.controls['firtName'].touched)
-        "
-      >
-        Name is required
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('firtName')?.hasError('minlength')"
-      >
-        Name requires at least 3 digits
-      </div>
+      <fieldset formGroupName="informationUser">
+        <div class="form-input">
+          <label for="firtName">Firts Name</label>
+          <input type="text" formControlName="firtName" id="firtName" />
+        </div>
+        <div
+          class="required"
+          *ngIf="
+            signupForm.get('informationUser.firtName')?.invalid &&
+            (signupForm.get('informationUser.firtName')?.dirty ||
+              signupForm.get('informationUser.firtName')?.touched)
+          "
+        >
+          Name is required
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.firtName')?.hasError('minlength')"
+        >
+          Name requires at least 3 digits
+        </div>
 
-      <div class="form-input">
-        <label for="secondName">Second Name</label>
-        <input type="text" formControlName="secondName" id="secondName" />
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('secondName')?.hasError('minlength')"
-      >
-        Second Name requires at least 3 digits
-      </div>
+        <div class="form-input">
+          <label for="secondName">Second Name</label>
+          <input type="text" formControlName="secondName" id="secondName" />
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.secondName')?.hasError('minlength')"
+        >
+          Second Name requires at least 3 digits
+        </div>
 
-      <div class="form-input">
-        <label for="surtName">Surtname</label>
-        <input type="text" formControlName="surtName" id="surtName" />
-      </div>
-      <div  class="required"
-      *ngIf="formRegister.controls['surtName'].invalid && 
-         (formRegister.controls['surtName'].dirty ||
-         formRegister.controls['surtName'].touched)"
-      >
-        Surtname is required
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('surtName')?.hasError('minlength')"
-      >
-        Surtname requires at least 3 digits
-      </div>
+        <div class="form-input">
+          <label for="surtName">Surtname</label>
+          <input type="text" formControlName="surtName" id="surtName" />
+        </div>
+        <div
+          class="required"
+          *ngIf="
+            signupForm.get('informationUser.surtName')?.invalid &&
+            (signupForm.get('informationUser.surtName')?.dirty ||
+              signupForm.get('informationUser.surtName')?.touched)
+          "
+        >
+          Surtname is required
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.surtName')?.hasError('minlength')"
+        >
+          Surtname requires at least 3 digits
+        </div>
 
-      <div class="form-input">
-        <label for="secondSurtname">Second Surtname</label>
-        <input type="text" formControlName="secondSurtname" id="name" />
-      </div>
-      <div class="required"
-       *ngIf="
-      formRegister.get('secondSurtname')?.hasError('minlength')">
-      Second Surtname requires at least 3 digits
-      </div>
+        <div class="form-input">
+          <label for="secondSurtname">Second Surtname</label>
+          <input type="text" formControlName="secondSurtname" id="name" />
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.secondSurtname')?.hasError('minlength')"
+        >
+          Second Surtname requires at least 3 digits
+        </div>
 
-      <div class="form-input">
-        <label for="email">Email</label>
-        <input type="email" formControlName="email" id="email" #email />
-      </div>
-      <div class="required"
-       *ngIf=
-      "formRegister.controls['email'].invalid && 
-      (formRegister.controls['email'].dirty ||
-       formRegister.controls['email'].touched)">
-        Email is required
-      </div>
+        <div class="form-input">
+          <label for="email">Email</label>
+          <input type="email" formControlName="email" id="email" #email />
+        </div>
+        <div
+          class="required"
+          *ngIf="
+            signupForm.get('informationUser.email')?.invalid &&
+            (signupForm.get('informationUser.email')?.dirty ||
+              signupForm.get('informationUser.email')?.touched)
+          "
+        >
+          Email is required
+        </div>
+
+        <div class="form-input">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            formControlName="password"
+            id="password"
+            #password
+          />
+        </div>
       
-      <div class="form-input">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          formControlName="password"
-          id="password"
-          #password
-        />
-      </div>
-      <!-- <div
-        class="required"
-        *ngIf=
-        "
-        formRegister.controls['password'].invalid && 
-        (formRegister.controls['password'].dirty ||
-         formRegister.controls['password'].touched)
-         "
-      >
-        Password is required
-      </div> -->
-     
-      <div
-        class="required"
-        *ngIf="formRegister.get('password')?.errors?.['passwordStrength'] && 
-        !formRegister.get('password')?.errors?.['passwordStrength']?.hasUpperCase"
-      >
-      Your password must have uppercase
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('password')?.errors?.['passwordStrength'] && 
-        !formRegister.get('password')?.errors?.['passwordStrength']?.hasLowerCase"
-      >
-      Your password must have lower Case
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('password')?.errors?.['passwordStrength'] && 
-        !formRegister.get('password')?.errors?.['passwordStrength']?.hasNumeric"
-      >
-      Your password must have  number
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('password')?.errors?.['passwordStrength'] && 
-        !formRegister.get('password')?.errors?.['passwordStrength']?.miniNumLenght"
-      >
-      Your password must have 8 digits
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.get('password')?.errors?.['passwordStrength'] && 
-        !formRegister.get('password')?.errors?.['passwordStrength']?.specialCharacter"
-      >
-      Your password must have special character
-      </div>
 
-      <div class="form-input">
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          formControlName="confirmPassword"
-          id="confirmPassword"
-          #confirmPassword
-        />
-      </div>
-      <div
-        class="required"
-        *ngIf=
-        "
-        formRegister.controls['confirmPassword'].invalid && 
-        (formRegister.controls['confirmPassword'].dirty ||
-         formRegister.controls['confirmPassword'].touched)
-         "
-      >
-        Password is required
-      </div>
-      <div
-        class="required"
-        *ngIf="formRegister.errors?.['notMatch'] && (formRegister.touched || formRegister.dirty)"  
-      >
-        no match 
-      </div>
-      <!-- <div class="form-input">
-        <label for="region">Continent</label>
-        <select formControlName="region">
-          <option value="">--Select Continent--</option>
-          <option *ngFor="let region of regions" [value]="region">
-            {{ region }}
-          </option>
-        </select>
-      </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.password')?.errors?.['passwordStrength'] && 
+        !signupForm.get('informationUser.password')?.errors?.['passwordStrength']?.hasUpperCase"
+        >
+          Your password must have uppercase
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.password')?.errors?.['passwordStrength'] && 
+        !signupForm.get('informationUser.password')?.errors?.['passwordStrength']?.hasLowerCase"
+        >
+          Your password must have lower Case
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.password')?.errors?.['passwordStrength'] && 
+        !signupForm.get('informationUser.password')?.errors?.['passwordStrength']?.hasNumeric"
+        >
+          Your password must have number
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.password')?.errors?.['passwordStrength'] && 
+        !signupForm.get('informationUser.password')?.errors?.['passwordStrength']?.miniNumLenght"
+        >
+          Your password must have 8 digits
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.get('informationUser.password')?.errors?.['passwordStrength'] && 
+        !signupForm.get('informationUser.password')?.errors?.['passwordStrength']?.specialCharacter"
+        >
+          Your password must have special character
+        </div>
 
-      <div class="form-input" *ngIf="countriesByRegion.length > 0">
-        <label for="country">Country</label>
-        <select formControlName="country">
-          <option value="">--Select Country--</option>
-          <option
-            *ngFor="let country of countriesByRegion"
-            [value]="country.cca3"
-          >
-            {{ country.name }}
-          </option>
-        </select> 
-      </div>-->
-
+        <div class="form-input">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            formControlName="confirmPassword"
+            id="confirmPassword"
+            #confirmPassword
+          />
+        </div>
+        <div
+          class="required"
+          *ngIf="
+            signupForm.get('informationUser.confirmPassword')?.invalid &&
+            (signupForm.get('informationUser.confirmPassword')?.dirty ||
+              signupForm.get('informationUser.confirmPassword')?.touched)
+          "
+        >
+          Confirm password is required
+        </div>
+        <div
+          class="required"
+          *ngIf="signupForm.errors?.['notMatch'] && (signupForm.touched || signupForm.dirty)"
+        >
+        no match
+        </div>
+      </fieldset>
+      <app-region-form (locationDataChange)="UpdateLocation()" ></app-region-form>
       <div>
         <button type="submit">Send</button>
       </div>

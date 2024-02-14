@@ -1,6 +1,6 @@
 import { ProductHome } from 'src/app/Models/products-home';
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from 'src/app/services/api-service.service';
+import { ApiProductsService } from 'src/app/services/api-products.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
@@ -17,7 +17,7 @@ export class DescriptionComponent implements OnInit {
   subscription!: Subscription;
   
   constructor(
-    private apiService:ApiServiceService,
+    private apiService:ApiProductsService,
     private cartService: CartService,
     private route: ActivatedRoute,
   ){ 

@@ -3,7 +3,7 @@
     <h2>Login</h2>
     <form
       [formGroup]="formLogin"
-      (ngSubmit)="onSumit(email.value, password.value)"
+      (ngSubmit)="onSumit()"
     >
       <div class="form-input">
         <label for="email">Email</label>
@@ -54,7 +54,7 @@
       </div>
 
       <li>
-        <a routerLink="/sign-up">Create your account </a>
+        <a routerLink="/auth/sign-up">Create your account </a>
       </li>
       <div class="button">
         <button type="submit">Login</button>

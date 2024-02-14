@@ -35,7 +35,7 @@ export class CartService {
   counter(): number {
     this.counterN = this.car.map((p) => p.quantity);
     //console.log(this.totalProduct);
-    console.log(this.counterN.reduce((total, product) => total + product, 0));
+   //console.log(this.counterN.reduce((total, product) => total + product, 0));
     return this.counterN.reduce((total, product) => total + product, 0);
   }
 

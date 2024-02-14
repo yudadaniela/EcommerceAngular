@@ -1,26 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home-principal/home.component';
-import { LoginComponent } from './pages/auth/login/login.component';
-import { AdmiComponent } from './pages/products-admi/home-admi/admi.component';
-import { ShoppingComponent } from './pages/shopping-card/shopping/shopping.component';
-import { SignUpComponent } from './pages/auth/sign-up/sign-up.component';
-import { DescriptionComponent } from './pages/home/description/description.component';
-import { HomeModule } from './pages/home/home.module';
+import { admiGuard } from './guards/admi.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // {path: 'home', component:HomeComponent },
   {
     path: 'home',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
-
-  // {path: 'description/:id', component:DescriptionComponent },
-
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () =>
       import('./pages/auth/login.module').then((m) => m.LoginModule),
   },
@@ -31,16 +21,16 @@ const routes: Routes = [
         (m) => m.ShoppingCardModule
       ),
   },
-  // {path: 'shopping', component: ShoppingComponent},
-  // {path: 'administration', component: AdmiComponent},
   {
-    path: 'administration',
+    path: 'admi',
     loadChildren: () =>
       import('./pages/products-admi/product-admi.module').then(
         (m) => m.ProductAdmiModule
       ),
+      canActivate:[admiGuard]
   },
-  // {path: '**', redirectTo: '/home', pathMatch: 'full'}
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  
 ];
 
 @NgModule({

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
@@ -13,11 +13,14 @@ import { HomeModule } from "./pages/home/home.module";
 import { LoginModule } from "./pages/auth/login.module";
 import { ProductAdmiModule } from "./pages/products-admi/product-admi.module";
 import { ShoppingCardModule } from "./pages/shopping-card/shopping-card.module";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { provideFirebaseApp,  initializeApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../assets/environments/environments';
 import { AngularFireModule } from "@angular/fire/compat";
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,12 @@ import { AngularFireModule } from "@angular/fire/compat";
     HeaderComponent,
     FooterComponent,
     CounterComponent,
+    SearchBarComponent,
     
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule, 
     HttpClientModule,
     HomeModule,
@@ -40,7 +45,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
