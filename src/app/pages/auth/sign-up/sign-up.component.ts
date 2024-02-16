@@ -18,6 +18,7 @@ import {
 import { RegionFormComponent } from '../components/region-form/region-form.component';
 import { User } from 'src/app/Models/user';
 import { Router } from '@angular/router';
+import { emailUniqueValidator } from '../components/validators/email.validators';
 
 @Component({
   selector: 'app-sign-up',
@@ -43,7 +44,7 @@ export class SignUpComponent implements OnInit {
         secondName: ['', [Validators.minLength(3)]],
         surtName: ['', [Validators.required, Validators.minLength(3)]],
         secondSurtname: ['', [Validators.minLength(3)]],
-        email: ['', [Validators.required, Validators.pattern(emailPattern)]],
+        email: ['', [Validators.required, Validators.pattern(emailPattern)],[emailUniqueValidator(this.authService)]],
         password: ['',
           [
             Validators.required,
@@ -52,13 +53,15 @@ export class SignUpComponent implements OnInit {
           ],
         ],
         confirmPassword: ['', [Validators.required]],
+        role:'user',
+        gender:['']
       }),
         location:this.fb.group({
         region: [''],
         country: [''],
       })
         
-      });
+      },{Validators:passwordMatchValidator});
   }
   showMesagge(mesg: string, action: string) {
     this.snackBar.open(mesg, action, {
@@ -78,61 +81,18 @@ export class SignUpComponent implements OnInit {
           this.router.navigate(['/auth/login'])
         }
         )
-         
-     
     }
-  //   // const emailAndPassword = { email: email, password: password };
-  //   // console.log(emailAndPassword);
-  //   // this.authService
-  //   //   .createUser(emailAndPassword.email, emailAndPassword.password)
-  //   //   .then((response) => {
-  //   //     console.log(response);
-  //   //     this.showMesagge('Register', 'Successful Registration');
-  //   //   })
-  //   //   .catch((error) =>
-  //   //     this.showMesagge('opps', 'Your email is not registered')
-  //   //   );
    }
    ngOnInit(): void {
    this.locationForm.locationDataChange.subscribe(locationData =>{
-    this.signupForm.get('locationData')?.patchValue(locationData)
+    this.signupForm.get('location')?.patchValue(locationData)
    })
-  //   //  this.onRegionChanged();
-  //   //  this.onCountryChange();
   }
-  UpdateLocation(){
-
+  UpdateLocation(locationInfo:Location){
+   console.log('Datos de ubicacionrecibidos', locationInfo);
+   this.signupForm.get('location')?.setValue(locationInfo);
+   this.signupForm.updateValueAndValidity()
   }
 
-  // get regions(): Region[] {
-  //   return this.countryService.regions;
-  // }
-
-  // onRegionChanged(): void {
-  //   this.formRegister
-  //     .get('region')!
-  //     .valueChanges.pipe(
-  //       tap(() => this.formRegister.get('country')!.setValue('')),
-  //       switchMap((region) => this.countryService.getCountriesByRegion(region))
-  //     )
-  //     .subscribe((countries) => {
-  //       this.countriesByRegion = countries;
-  //     });
-  // }
-
-  // onCountryChange(): void {
-  //   this.formRegister
-  //     .get('country')!
-  //     .valueChanges.pipe(
-  //       tap(() => this.formRegister.get('currency')!.setValue('')),
-  //       filter((value: string) => value.length > 0),
-  //       switchMap((alphaCode) =>
-  //         this.countryService.getCountryAlphaCode(alphaCode)
-  //       )
-  //     )
-  //     .subscribe((country) => {
-  //       console.log({ currency: country.currencies });
-  //       //this.currencyCountry=country.currencies
-  //     });
-  // }
+ 
 }

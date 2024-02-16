@@ -131,7 +131,7 @@
       "id": "e631"
     },
     {
-      "id": "6c9e",
+      "id": "978d",
       "informationUser": {
         "firtName": "yurani",
         "secondName": "daniela",
@@ -139,11 +139,13 @@
         "secondSurtname": "castro",
         "email": "yuda@hotmail.com",
         "password": "Dani.92123124474",
-        "confirmPassword": "Dani.92123124474"
+        "confirmPassword": "Dani.92123124474",
+        "role": "user",
+        "gender": "female"
       },
       "location": {
-        "region": "",
-        "country": ""
+        "region": "Americas",
+        "country": "USA"
       }
     }
   ]
