@@ -45,8 +45,14 @@ export function createPasswordStrengthValidator(): ValidatorFn {
 }
 export const emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
 
-export function passwordMatchValidator(group:FormGroup): {[key:string]:any} |null {
-  const password = group.get('password')?.value;
-    const confirmPasword = group.get('confirmPasword')?.value;
-    return password === confirmPasword? null : { notMatch: true };
+export function passwordMatchValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const password = control.get('password');
+    const confirmPasword = control.get('confirmPasword');
+    console.log(password && confirmPasword && password.value === confirmPasword.value
+      ? null : { notMatch: true });
+    
+    return password && confirmPasword && password.value === confirmPasword.value
+      ? null : { notMatch: true };
+  }
 }

@@ -8,6 +8,10 @@ export function emailUniqueValidator(
   ): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;
+      console.log(authService.isEmailUnique(email).pipe(
+        map(isUnique => (isUnique ? null : { emailNotUnique: true })),
+        catchError(() => of(null))
+      ));
       return authService.isEmailUnique(email).pipe(
         map(isUnique => (isUnique ? null : { emailNotUnique: true })),
         catchError(() => of(null))

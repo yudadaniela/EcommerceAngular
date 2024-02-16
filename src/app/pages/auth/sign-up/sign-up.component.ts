@@ -61,7 +61,7 @@ export class SignUpComponent implements OnInit {
         country: [''],
       })
         
-      },{Validators:passwordMatchValidator});
+      },{Validators:passwordMatchValidator()});
   }
   showMesagge(mesg: string, action: string) {
     this.snackBar.open(mesg, action, {
