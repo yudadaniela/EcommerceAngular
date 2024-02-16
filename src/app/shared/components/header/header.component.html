@@ -6,6 +6,11 @@
       <ng-container *ngIf="isHomePage()">
       <app-search-bar></app-search-bar>
      </ng-container> 
+     <h5 *ngIf="currentUser()">Hola,{{user?.firtName}}</h5>
+     <div *ngIf="currentUser()">
+      <button (click)="signOff()">Log Out</button>
+     </div>
+    
     <ul class="nav justify-content-end">
       <div class="nav-link"></div>
       <li class="nav-item">
