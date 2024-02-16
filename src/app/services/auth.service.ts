@@ -9,7 +9,7 @@ import { Observable, catchError, map, throwError, Subscriber } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
   private token: string = '';
-  private users: any = [];
+  private users: User[] |any = [];
   private isLoggedIn: boolean = false;
   private currentUser: User | null = null;
   constructor(private http: HttpClient) {}
@@ -117,6 +117,10 @@ export class AuthService {
     localStorage.removeItem('access_token');
     console.log('remove', this.getAccessToken());
   }
+  /**
+   * 
+   * @returns Return the object the user the type User 
+   */
   getUser() {
     return this.currentUser;
   }
