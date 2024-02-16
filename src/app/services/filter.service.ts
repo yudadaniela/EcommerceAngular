@@ -11,6 +11,7 @@ export class FilterService {
   constructor() {}
 
   emitSearch(item: string) {
+    console.log(this.searchEvent.emit(item));
     this.searchEvent.emit(item);
   }
   filterBySearch(data: ProductHome[], searchItem: string) {

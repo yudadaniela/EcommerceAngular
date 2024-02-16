@@ -14,7 +14,7 @@ import {
   createPasswordStrengthValidator,
   emailPattern,
   passwordMatchValidator,
-} from '../components/validators/validator';
+} from '../components/validators/validators';
 import { RegionFormComponent } from '../components/region-form/region-form.component';
 import { User } from 'src/app/Models/user';
 import { Router } from '@angular/router';
