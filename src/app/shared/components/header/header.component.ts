@@ -34,7 +34,6 @@ export class HeaderComponent {
   }
   signOff(){
     console.log(this.authService.logout());
-    
     this.router.navigate([''])
     return this.authService.logout()
   }
