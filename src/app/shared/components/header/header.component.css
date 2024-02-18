@@ -1,4 +1,4 @@
-.nav-link {
+/* .nav-link {
   color: #fae9e6;
   font-size: large;
 }
@@ -25,4 +25,131 @@ img {
   margin: 0;
   color: #fae9e6;
   font-size: 40px;
+} */
+header {
+ padding: 0;
+ margin: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+ padding: 0,20px;
+}
+
+
+.menu-toggle {
+  margin-right: 20px;
+  display: none;
+}
+h1{
+  margin: 0;
+}
+.app-search-bar{
+  flex-grow: 1;
+  text-align: center;
+}
+.user-inf{
+ display: flex;
+ align-items: center;
+ 
+}
+.user-greeting{
+  margin-right: 10px;
+}
+.user-inf h5{
+  margin :0;
+  font-size: 1rem;
+}
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  font-size: 1rem;
+}
+.nav-links li a {
+  color: #fff; /* Color de texto */
+  text-decoration: none; /* Quita la subrayado */
+  transition: color 0.3s; /* Agrega una transición suave */
+}
+.nav-links li a:hover {
+  color: #ffcc00; /* Cambia el color al pasar el ratón */
+}
+.nav-links li button{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+.user-inf button:hover{
+  text-decoration: underline;
+}
+.cart-icon {
+  position: relative;
+  left: -10px;
+}
+.fa-cart-shopping {
+  font-size: 24px; /* Tamaño del ícono */
+  color: #fff; /* Color del ícono */
+  margin-right: 10px; /* Espacio entre el ícono y el contador */
+}
+
+/* Estilos para el contador del carrito de compras */
+.counter {
+  position: absolute;
+  top: 30%;
+  right: 1px;
+  transform: translateY(-50%);
+  background-color: #ffcc00;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  color: #333;
+  
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #cc6e6b;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links li:first-child {
+    margin-top: 0;
+  }
+
+  .nav-links li:last-child {
+    margin-bottom: 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }

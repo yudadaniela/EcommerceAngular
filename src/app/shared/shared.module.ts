@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { RouterModule } from '@angular/router';
+import { SiderBarComponent } from './components/sider-bar/sider-bar.component';
 
 
 
@@ -14,7 +15,8 @@ import { RouterModule } from '@angular/router';
     CounterComponent,
     FooterComponent,
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SiderBarComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     HeaderComponent,
     SearchBarComponent,
+    SiderBarComponent
   ]
 })
 export class SharedModule { }

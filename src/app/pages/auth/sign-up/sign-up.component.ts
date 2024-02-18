@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, Validator, FormGroupDirective, NgForm } from '@angular/forms';
 import { CountriesService } from '../../../services/countries.service';
 import {
   Region,
@@ -19,6 +19,7 @@ import { RegionFormComponent } from '../components/region-form/region-form.compo
 import { User } from 'src/app/Models/user';
 import { Router } from '@angular/router';
 import { emailUniqueValidator } from '../components/validators/email.validators';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'app-sign-up',
@@ -55,14 +56,15 @@ export class SignUpComponent implements OnInit {
         confirmPassword: ['', [Validators.required]],
         role:'user',
         gender:['']
-      }),
+      }, { validators: passwordMatchValidator()}),
         location:this.fb.group({
         region: [''],
         country: [''],
       })
         
-      },{Validators:passwordMatchValidator()});
+      });
   }
+
   showMesagge(mesg: string, action: string) {
     this.snackBar.open(mesg, action, {
       horizontalPosition: 'center',

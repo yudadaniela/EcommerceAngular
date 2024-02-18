@@ -1,0 +1,30 @@
+/* Estilos para el contenedor del campo de búsqueda */
+.app-search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Estilos para el campo de búsqueda */
+  .app-search-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 300px;
+    font-size: 14px;
+  }
+  
+  /* Estilos para el botón de búsqueda */
+  .app-search-bar button {
+    padding: 8px 12px;
+    background-color: #cc6e6b;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el botón de búsqueda al pasar el ratón */
+  .app-search-bar button:hover {
+    background-color: #af5d5e;
+  }

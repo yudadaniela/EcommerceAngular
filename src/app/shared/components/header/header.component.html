@@ -1,36 +1,35 @@
 <header>
-  <nav class="navbar navbar-light" style="background-color: #cc6e6b">
-    <div>
-      <img src="./assets/Lovely_1.JPG" />
+  <nav class="navbar" style="background-color: #cc6e6b">
+    <div class="menu-toogle">
+      <button>menu</button>
     </div>
-      <ng-container *ngIf="isHomePage()">
+    <h1>You shop Online</h1>
+    <ng-container *ngIf="isHomePage()">
       <app-search-bar></app-search-bar>
-     </ng-container> 
-     <h5 *ngIf="currentUser()">Hola,{{user?.firtName}}</h5>
-     <div *ngIf="currentUser()">
-      <button (click)="signOff()">Log Out</button>
-     </div>
-    <ul class="nav justify-content-end">
-      <div class="nav-link"></div>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/auth/login">Login</a>
+    </ng-container>
+    <ul class="nav-links">
+      <li *ngIf="currentUser()">
+        <div class="user-inf">
+          <div class="user-greeting">
+            <h5>Hola,</h5>
+            <h5>{{ user?.firtName }}</h5>
+          </div>
+          <button (click)="signOff()">Log Out</button>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/shopping"> Shopping Cart</a>
-      </li>
+      <li *ngIf="!currentUser()"><a routerLink="/auth/login">Login</a></li>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/shopping"> Shopping Cart</a></li>
       <!-- <li class="nav-item">
         <a class="nav-link" routerLink="/administration">Administration</a>
       </li> -->
-       <div class="counter">
-        <h3>{{ shoppingCounter() }}</h3>
-      </div> 
-      <li class="nav">
+
+      <li class="cart-icon">
         <i class="fa-solid fa-cart-shopping"></i>
       </li>
-      
+      <div class="counter">
+        <h3>{{ shoppingCounter() }}</h3>
+      </div>
     </ul>
   </nav>
 </header>

@@ -5,10 +5,13 @@ import {
   ValidatorFn,
   FormControl,
   AsyncValidatorFn,
+  FormGroupDirective,
+  NgForm,
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -48,11 +51,12 @@ export const emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
 export function passwordMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const password = control.get('password');
-    const confirmPasword = control.get('confirmPasword');
-    console.log(password && confirmPasword && password.value === confirmPasword.value
-      ? null : { notMatch: true });
-    
-    return password && confirmPasword && password.value === confirmPasword.value
+       
+    const confirmPassword = control.get('confirmPassword');
+     
+    console.log(password && confirmPassword && password.value === confirmPassword.value
+      ? 'pasword match' : 'password not match');
+    return password && confirmPassword && password.value === confirmPassword.value
       ? null : { notMatch: true };
   }
 }
