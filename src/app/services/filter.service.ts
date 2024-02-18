@@ -7,7 +7,7 @@ import { ProductHome } from 'src/app/Models/products-home';
 })
 export class FilterService {
   searchEvent: EventEmitter<string> = new EventEmitter<string>();
-
+  
   constructor() {}
 
   emitSearch(item: string) {
@@ -21,7 +21,8 @@ export class FilterService {
       return data.filter(
         (item) =>
           item.title.toLowerCase().includes(searchItem.toLowerCase()) ||
-          item.description?.toLowerCase().includes(searchItem.toLowerCase())
+          item.description?.toLowerCase().includes(searchItem.toLowerCase())||
+          item.category?.toLowerCase().includes(searchItem.toLowerCase())
       );
     }
   }

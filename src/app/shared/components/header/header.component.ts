@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from '../../../Models/user';
+import { ToggleService } from 'src/app/services/toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +12,12 @@ import { User } from '../../../Models/user';
 })
 export class HeaderComponent {
   user:User|null=null
+  
   constructor(
     private cartService: CartService,
     private router:Router,
-    private authService:AuthService
+    private authService:AuthService,
+    private toggleService:ToggleService
     ) {}
   
   shoppingCounter(): number {
@@ -24,9 +27,6 @@ export class HeaderComponent {
   isHomePage():boolean{
    return this.router.url==='/home'
   }
-  // handdle(searchItem:string){
-  // console.log('termino de la busqueda', searchItem);
-  // }
 
   currentUser(){
     this.user = this.authService.getUser()
@@ -36,5 +36,8 @@ export class HeaderComponent {
     console.log(this.authService.logout());
     this.router.navigate([''])
     return this.authService.logout()
+  }
+  toggleSiderBar(){
+    return this.toggleService.toggleSiderBar()
   }
 }

@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar" style="background-color: #cc6e6b">
+  <nav class="navbar"  style="background-color: #cc6e6b" >
     <div class="menu-toogle">
-      <button>menu</button>
+      <button (click)="toggleSiderBar()">menu</button>
     </div>
     <h1>You shop Online</h1>
     <ng-container *ngIf="isHomePage()">

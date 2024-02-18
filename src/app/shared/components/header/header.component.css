@@ -29,13 +29,14 @@ img {
 header {
  padding: 0;
  margin: 0;
+
 }
 
 .navbar {
   display: flex;
   justify-content:space-between;
   align-items: center;
- padding: 0,20px;
+  padding: 0,20px;
 }
 
 
