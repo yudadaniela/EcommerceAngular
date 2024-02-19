@@ -25,7 +25,7 @@ export class HeaderComponent {
   }
   
   isHomePage():boolean{
-   return this.router.url==='/home'
+   return this.router.url==='/home/homeProducts'
   }
 
   currentUser(){

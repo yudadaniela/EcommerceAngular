@@ -5,6 +5,7 @@ import { ProductHome } from 'src/app/Models/products-home';
 import { ItemCar } from '../../../Models/cart-items';
 import { CartService } from '../../../services/cart.service';
 import { FilterService } from 'src/app/services/filter.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,10 +15,12 @@ import { FilterService } from 'src/app/services/filter.service';
 export class HomeComponent implements OnInit {
   data!:ProductHome[];
   filterData!:ProductHome[];
+  category:string=''
   constructor(
     private cartService: CartService,
     private apiService: ApiProductsService,
-    private filterService :FilterService
+    private filterService :FilterService,
+    private router:ActivatedRoute
   ) {}
 
   addToCar(item: ProductHome) {
@@ -44,5 +47,14 @@ export class HomeComponent implements OnInit {
     this.filterService.searchEvent.subscribe((searchTerm)=>{
      this.filterData = this.filterService.filterBySearch(this.data, searchTerm)
     })
+    this.router.queryParams.subscribe(params =>{
+      const category=params['category']
+      if(category){
+        this.filterService.categoryEvent.subscribe((category)=>{
+          this.filterData = this.filterService.filterByCategory(this.data, category)
+         })
+      }
+    })
+    
   }
 }

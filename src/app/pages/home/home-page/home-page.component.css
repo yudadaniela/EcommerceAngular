@@ -3,3 +3,44 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
+/* .container{
+position: relative;
+}
+.container h3{
+    position: absolute;
+    bottom: -1px;
+    right: 60px;
+    font-size:xx-large;
+} */
+.container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    padding-right: 20px;
+}
+.register-section{
+    text-align: right;
+}
+.register-section h4{
+    margin-bottom: 10px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    color: beige;
+    font-size: 24px;   
+}
+.register-section a{
+    color: bisque;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.register-section a:hover{
+    color: black;
+}
+.welcome{
+ margin-right: auto;
+ font-size:50px;
+ font-weight: bold;
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+ color: beige;
+}
+ 

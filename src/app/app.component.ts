@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FilterService } from './services/filter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,13 @@ import { FilterService } from './services/filter.service';
 export class AppComponent {
   title = 'angularEcommerce';
   constructor(
-    private filterService:FilterService
+    private filterService:FilterService,
+    private router:Router
   ){}
   chooseCategory(category:string, event:Event){
-  event?.preventDefault()
+   event?.preventDefault()
    console.log(category);
-   this.filterService.emitSearch(category)
+   this.filterService.emitCategory(category)
+   this.router.navigate(['/home/homeProducts'],{ queryParams:{category:category}})
   }
 }

@@ -1,9 +1,8 @@
 <header>
   <nav class="navbar"  style="background-color: black" >
-    <div class="menu-toogle">
-      <button (click)="toggleSiderBar()">menu</button>
-    </div>
-    <h1>You shop Online</h1>
+         <i class="fa-solid fa-bars" (click)="toggleSiderBar()"></i>
+      
+       <h1>Lovely Clothles </h1>
     <ng-container *ngIf="isHomePage()">
       <app-search-bar></app-search-bar>
     </ng-container>
@@ -18,7 +17,7 @@
         </div>
       </li>
       <li *ngIf="!currentUser()"><a routerLink="/auth/login">Login</a></li>
-      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/home/homeProducts">Home</a></li>
       <li><a routerLink="/shopping"> Shopping Cart</a></li>
       <!-- <li class="nav-item">
         <a class="nav-link" routerLink="/administration">Administration</a>

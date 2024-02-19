@@ -39,7 +39,7 @@ li {
   text-align: center;
 }
 button {
-  background-color: #cc6e6b;
+  background-color: hsl(341, 84%, 57%);
   border: none;
   border-radius: 3px;
   padding: 10px 20px;

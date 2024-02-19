@@ -26,8 +26,8 @@ a{
     color: black;
 }
   button{
-    background-color: rgb(214, 105, 118);
-    border: rgb(214, 105, 118);
+    background-color:  hsl(341, 84%, 57%);
+    border:  hsl(341, 84%, 57%);
     color: aliceblue;
     width: 30%;
     border-radius: 50%;
