@@ -13,17 +13,17 @@ class PermissionService {
   ) {}
   canActivate(next:ActivatedRouteSnapshot, state:RouterStateSnapshot):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean |UrlTree{
     if(this.authService.ifAuthentication() && this.authService.isAdmi()){
-     console.log('acceso activado home');
+     console.log('acceso activado admi');
      return true
     }else if(this.authService.ifAuthentication() && this.authService.isUser()){
       console.log(this.authService.isUser());
       return this.router.createUrlTree(['/home/homeProducts'])
     }else{
       console.log('no esta registrado');
-      return this.router.createUrlTree(['/auth/sign-up'])
+      return this.router.createUrlTree([''])
     }
  } 
 }
 export const admiGuard: CanActivateFn = (next:ActivatedRouteSnapshot, state:RouterStateSnapshot):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean |UrlTree => {
-  return inject(PermissionService).canActivate(next, state )
+  return inject(PermissionService).canActivate(next, state)
 };
