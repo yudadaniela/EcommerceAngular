@@ -1,6 +1,6 @@
 import { Subscriber, Observable } from 'rxjs';
 import { Component} from '@angular/core';
-import { HomeComponent } from '../../home/home-principal/home.component';
+import { HomeComponent } from '../../home/home/home.component';
 import { ItemCar } from '../../../Models/cart-items';
 import { CartService } from '../../../services/cart.service';
 

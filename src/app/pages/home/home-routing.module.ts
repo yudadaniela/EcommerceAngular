@@ -2,11 +2,12 @@ import { DescriptionComponent } from './description/description.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home-principal/home.component';
+import { HomeComponent } from './home/home.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes:Routes=[
   {path: '',
-  component:HomeComponent},
+  component:HomePageComponent},
   {path: 'description/:id',
   component:DescriptionComponent}
    

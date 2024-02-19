@@ -105,6 +105,7 @@ export class AuthService {
  */
   ifAuthentication(): boolean {
     const token = this.getAccessToken();
+    console.log(!!token);
     return !!token;
   }
   /**

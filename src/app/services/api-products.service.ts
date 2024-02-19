@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import {Observable, catchError, throwError}from 'rxjs'
 import { ProductHome } from "../Models/products-home";
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +11,19 @@ import { ProductHome } from "../Models/products-home";
 export class ApiProductsService {
   private upiUrl='http://localhost:3000/products';
 
-  constructor(private http:HttpClient){}
+  constructor(
+    private http:HttpClient,
+    private authService:AuthService,
+    private router:Router,
+    ){}
   /**
    * 
    * @returns Return observable with array of products
    */
   getData():Observable<ProductHome[]>{
+    if(!this.authService.ifAuthentication()){
+      this.router.navigate(['/auth/login'])
+    }
     return this.http.get<ProductHome[]>(this.upiUrl)
     .pipe(catchError((error)=>{
       return throwError(()=>{error})
