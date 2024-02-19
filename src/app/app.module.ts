@@ -5,14 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { CounterComponent } from './shared/components/counter/counter.component'
-
 import { HomeModule } from "./pages/home/home.module";
 import { LoginModule } from "./pages/auth/login.module";
 import { ProductAdmiModule } from "./pages/products-admi/product-admi.module";
 import { ShoppingCardModule } from "./pages/shopping-card/shopping-card.module";
+import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { provideFirebaseApp,  initializeApp } from '@angular/fire/app';
@@ -20,22 +17,19 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { environment } from '../assets/environments/environments';
 import { AngularFireModule } from "@angular/fire/compat";
 import { ErrorInterceptor } from './interceptors/error.interceptor';
-import { SearchBarComponent } from './shared/components/search-bar/search-bar.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    CounterComponent,
-    SearchBarComponent,
-    
+    AppComponent,     
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule, 
     HttpClientModule,
+    SharedModule,
     HomeModule,
     LoginModule,
     ProductAdmiModule,

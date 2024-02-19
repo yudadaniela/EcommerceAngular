@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FilterService } from './services/filter.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularEcommerce';
+  constructor(
+    private filterService:FilterService
+  ){}
+  chooseCategory(category:string, event:Event){
+  event?.preventDefault()
+   console.log(category);
+   this.filterService.emitSearch(category)
+  }
 }

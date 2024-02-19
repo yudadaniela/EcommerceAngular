@@ -15,8 +15,12 @@ class PermissionService {
     if(this.authService.ifAuthentication() && this.authService.isAdmi()){
      console.log('acceso activado home');
      return true
+    }else if(this.authService.ifAuthentication() && this.authService.isUser()){
+      console.log(this.authService.isUser());
+      return this.router.createUrlTree(['/home'])
     }else{
-     return this.router.createUrlTree(['/home'])
+      console.log('no esta registrado');
+      return this.router.createUrlTree(['/auth/sign-up'])
     }
  } 
 }

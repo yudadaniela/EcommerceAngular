@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductHome } from 'src/app/Models/products-home';
 import { ItemCar } from '../../../Models/cart-items';
 import { CartService } from '../../../services/cart.service';
+import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,12 @@ import { CartService } from '../../../services/cart.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  data: any;
+  data!:ProductHome[];
+  filterData!:ProductHome[];
   constructor(
     private cartService: CartService,
-    private apiService: ApiProductsService
+    private apiService: ApiProductsService,
+    private filterService :FilterService
   ) {}
 
   addToCar(item: ProductHome) {
@@ -35,7 +38,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getData().subscribe((respond) => {
       this.data = respond;
+      this.filterData=respond
       //console.log(respond);
     });
+    this.filterService.searchEvent.subscribe((searchTerm)=>{
+     this.filterData = this.filterService.filterBySearch(this.data, searchTerm)
+    })
   }
 }
