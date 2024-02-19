@@ -17,7 +17,7 @@ class PermissionService {
      return true
     }else if(this.authService.ifAuthentication() && this.authService.isUser()){
       console.log(this.authService.isUser());
-      return this.router.createUrlTree(['/home'])
+      return this.router.createUrlTree(['/home/homeProducts'])
     }else{
       console.log('no esta registrado');
       return this.router.createUrlTree(['/auth/sign-up'])

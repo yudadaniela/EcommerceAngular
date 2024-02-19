@@ -2,7 +2,7 @@
   <nav class="navbar"  style="background-color: black" >
          <i class="fa-solid fa-bars" (click)="toggleSiderBar()"></i>
       
-       <h1>Lovely Clothles </h1>
+       <h1>Lovely Clothes </h1>
     <ng-container *ngIf="isHomePage()">
       <app-search-bar></app-search-bar>
     </ng-container>
@@ -10,8 +10,8 @@
       <li *ngIf="currentUser()">
         <div class="user-inf">
           <div class="user-greeting">
-            <h5>Hola,</h5>
-            <h5>{{ user?.firtName }}</h5>
+            <h5></h5>
+            <h5>Hello, {{ user?.firtName }}</h5>
           </div>
           <button (click)="signOff()">Log Out</button>
         </div>

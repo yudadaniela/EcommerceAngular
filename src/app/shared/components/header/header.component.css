@@ -28,15 +28,20 @@ color:  hsl(341, 84%, 57%);
 }
 .user-inf{
  display: flex;
- align-items: center;
+ align-items: center
  
 }
 .user-greeting{
-  margin-right: 10px;
+  
 }
 .user-inf h5{
-  margin :0;
   font-size: 1rem;
+  margin-right: 10px;
+  color: #fff;
+  padding-right: 5px;
+  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
 }
 .nav-links {
   list-style-type: none;
