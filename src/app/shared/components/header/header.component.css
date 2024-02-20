@@ -56,12 +56,12 @@ color:  hsl(341, 84%, 57%);
   font-size: 1rem;
 }
 .nav-links li a {
-  color: #fff; /* Color de texto */
-  text-decoration: none; /* Quita la subrayado */
-  transition: color 0.3s; /* Agrega una transición suave */
+  color: #fff; 
+  text-decoration: none; 
+  transition: color 0.3s; 
 }
 .nav-links li a:hover {
-  color:  hsl(341, 84%, 57%); /* Cambia el color al pasar el ratón */
+  color:  hsl(341, 84%, 57%);
 }
 .nav-links li button{
   background-color: transparent;
@@ -77,12 +77,12 @@ color:  hsl(341, 84%, 57%);
   left: -10px;
 }
 .fa-cart-shopping {
-  font-size: 24px; /* Tamaño del ícono */
-  color: #fff; /* Color del ícono */
-  margin-right: 10px; /* Espacio entre el ícono y el contador */
+  font-size: 24px; 
+  color: #fff; 
+  margin-right: 10px; 
 }
 
-/* Estilos para el contador del carrito de compras */
+
 .counter {
   position: absolute;
   top: 30%;
@@ -99,7 +99,7 @@ color:  hsl(341, 84%, 57%);
   
 }
 
-/* Estilos para dispositivos móviles */
+
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: block;

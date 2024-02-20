@@ -27,10 +27,12 @@ export class HeaderComponent {
   isHomePage():boolean{
    return this.router.url==='/home/homeProducts'
   }
-
   currentUser(){
     this.user = this.authService.getUser()
     return this.user
+  }
+  isAdmi():boolean|null{
+   return this.authService.isAdmi()
   }
   signOff(){
     console.log(this.authService.logout());

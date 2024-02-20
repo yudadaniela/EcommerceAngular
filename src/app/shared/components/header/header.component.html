@@ -19,9 +19,8 @@
       <li *ngIf="!currentUser()"><a routerLink="/auth/login">Login</a></li>
       <li><a routerLink="/home/homeProducts">Home</a></li>
       <li><a routerLink="/shopping"> Shopping Cart</a></li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" routerLink="/administration">Administration</a>
-      </li> -->
+     <li *ngIf="isAdmi()"><a  routerLink="/administration">Administration</a>
+      </li> 
 
       <li class="cart-icon">
         <i class="fa-solid fa-cart-shopping"></i>
