@@ -31,19 +31,32 @@ export class LoginComponent {
   }
   onSumit() {
    const email = this.formLogin.get('email')?.value;
-   console.log(email);
+   //console.log(email);
    const password = this.formLogin.get('password')?.value;
-   console.log(password);
+   //console.log(password);
    this.authService.login(email, password).subscribe((login)=>{
     // login?this.router.navigate(['/admi']):this.router.navigate(['/register'])
-    console.log(login);
+   // console.log(login);
     
     if(login){
       console.log('se hizo login'); 
       this.router.navigate(['/admi'])
     }else{
-      console.log('no se ha registrado');
-      this.router.navigate(['/sign-up'])
+      this.authService.isEmailUnique(email).subscribe(verify=>{
+        console.log(verify);
+        if(verify===true){
+          this.showMesagge('You have not registered','please register')
+         setTimeout(() => {
+          this.router.navigate([''])
+         }, 3000);
+           }else{
+            
+            this.showMesagge('Opsss','Verify your password')
+           }
+      })
+      
+      
+      
     }
    },(error)=>{
     console.log("error durante el inicio de sesion", error);

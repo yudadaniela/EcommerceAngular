@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClient } from "@angular/common/http";
+import { HttpTestingController,HttpClientTestingModule } from "@angular/common/http/testing";
 import { ApiProductsService } from './api-products.service';
 
 class HttpClientMock {
@@ -7,10 +7,10 @@ class HttpClientMock {
 } 
 describe('ApiServiceService', () => {
   let service: ApiProductsService;
-
+  let httpMock:HttpTestingController
   beforeEach(() => {
-    TestBed.configureTestingModule({});
     service = TestBed.inject(ApiProductsService);
+    httpMock = TestBed.inject(HttpTestingController)
   });
 
   it('should be created', () => {

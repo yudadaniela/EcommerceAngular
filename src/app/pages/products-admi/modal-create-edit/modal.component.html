@@ -1,59 +1,80 @@
-<h1 mat-dialog-title>{{titleAction}}</h1>
+<h1 mat-dialog-title>{{ titleAction }}</h1>
 <div mat-dialog-content>
-
-  <form [formGroup]="formProducts" >
-    
+  <form [formGroup]="formProducts">
     <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field appearance="outline">
-          <mat-label>title</mat-label>
-          <input matInput formControlName="title" autocomplete="off">
-         </mat-form-field>
-      </mat-grid-tile>
+      <div *ngIf="segment === 1">
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>title</mat-label>
+            <input matInput formControlName="title" autocomplete="off" />
+          </mat-form-field>
+        </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Category</mat-label>
-          <mat-select formControlName="category">
-            <mat-option value="men's clothing">men's clothing</mat-option>
-            <mat-option value="jewelery">jewelery</mat-option>
-            <mat-option value="electronics">electronics</mat-option>
-            <mat-option value="women's clothing">women's clothing</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option value="men's clothing">men's clothing</mat-option>
+              <mat-option value="jewelery">jewelery</mat-option>
+              <mat-option value="electronics">electronics</mat-option>
+              <mat-option value="women's clothing">women's clothing</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="primary" (click)="advance()">
+            next
+           </button>
+           <button mat-raised-button mat-dialog-close color="warn">Close</button>
 
-      <mat-grid-tile>
-        <mat-form-field>
-          <mat-label>Description</mat-label>
-          <textarea matInput formControlName="description"></textarea>
-        </mat-form-field>
-      </mat-grid-tile>
+        </mat-grid-tile>
+        
+      </div>
+      <div *ngIf="segment === 2">
+        <mat-grid-tile>
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+        </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field appearance="outline">
-          <mat-label>Price</mat-label>
-          <input matInput formControlName="price" autocomplete="off" type="number">
-         </mat-form-field>
-      </mat-grid-tile>
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Price</mat-label>
+            <input
+              matInput
+              formControlName="price"
+              autocomplete="off"
+              type="number"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
 
-      <mat-grid-tile>
-        <mat-form-field appearance="outline">
-          <mat-label>Url Imagen</mat-label>
-          <input matInput formControlName="image" autocomplete="off">
-         </mat-form-field>
-      </mat-grid-tile>
-
-     
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Url Imagen</mat-label>
+            <input matInput formControlName="image" autocomplete="off" />
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <button mat-raised-button color="primary" (click)="goBack()">
+            Go back
+          </button>
+  
+          <div mat-dialog-actions>
+            <button mat-raised-button mat-dialog-close color="warn">Close</button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="addEditProduct()"
+              [disabled]="formProducts.invalid"
+            >
+              {{ buttonAction }}
+            </button>
+          </div>
+        </mat-grid-tile>
+        
+      </div>
     </mat-grid-list>
-    <div mat-dialog-actions>
-      <button mat-raised-button mat-dialog-close color="warn">Close</button>
-      <button mat-raised-button color="primary"
-      (click)="addEditProduct()"
-      [disabled]="formProducts.invalid"
-      >{{buttonAction}}</button>
-    
-    </div>
   </form>
 </div>
-

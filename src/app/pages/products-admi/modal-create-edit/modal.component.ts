@@ -19,6 +19,7 @@ export class ModalComponent {
   buttonAction: string = 'Save';
   listProduct: ProductHome[] = [];
   submit: boolean = false;
+  segment: number = 1
   constructor(
     private modalRef: MatDialogRef<ModalComponent>, //*** */
     private fb: FormBuilder,
@@ -27,12 +28,14 @@ export class ModalComponent {
     @Inject(MAT_DIALOG_DATA) public dataProduct: ProductHome
   ) {
     this.formProducts = this.fb.group({
+      title: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
       //id: ['', Validators.required],
-      image: ['', Validators.required],
       price: ['', Validators.required],
-      title: ['', Validators.required],
+      image: ['', Validators.required],
+      
+      
     });
     this.apiService.getData().subscribe({
       next: (data) => {
@@ -87,6 +90,17 @@ export class ModalComponent {
       });
       this.titleAction = 'Edit Product';
       this.buttonAction = 'Update';
+    }
+  }
+  advance(){
+    if(this.segment<2){
+      this.segment ++
+    }
+  }
+  
+  goBack(){
+    if(this.segment>1){
+      this.segment --
     }
   }
 }
