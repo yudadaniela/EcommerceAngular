@@ -35,28 +35,12 @@ export class CountriesService {
     return this.http.get<Country[]>(url).pipe(
       map((countries) =>
         countries.map((country) => ({
-          name: country.name.common,
+          name: country.name.common ??'',
           cca3: country.cca3,
           borders: country.borders ?? [], //operador de covalencia nula, evalua si es nulo
-          currency: country.currencies,
         }))
       ) //regreza lo que nosotros queramos, transforma la data
     );
   }
-  /**
-   * 
-   * @param alphaCode 
-   * @returns 
-   */
-  getCountryAlphaCode(alphaCode: string): Observable<SmallCountry> {
-    const url = `${this.baseUrl}/alpha/${alphaCode}?fields=cca3,name,borders,currencies`;
-    return this.http.get<Country>(url).pipe(
-      map((country) => ({
-        name: country.name.common,
-        cca3: country.cca3,
-        borders: country.borders ?? [],
-        currencies: country.currencies,
-      }))
-    );
-  }
+  
 }
