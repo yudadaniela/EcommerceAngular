@@ -109,4 +109,22 @@ describe('SingUpComponent', () => {
             fail('Location es nulo')
         }
     })
+    it('should create signup form with required controls', () => {
+        expect(component.signupForm.contains('informationUser')).toBeTruthy();
+        const infoUser = component.signupForm.get('informationUser') as FormGroup;
+        expect(infoUser.contains('firtName')).toBeTruthy();
+        expect(infoUser.contains('secondName')).toBeTruthy();
+        expect(infoUser.contains('surtName')).toBeTruthy();
+        expect(infoUser.contains('secondSurtname')).toBeTruthy();
+        expect(infoUser.contains('email')).toBeTruthy();
+        expect(infoUser.contains('password')).toBeTruthy();
+        expect(infoUser.contains('confirmPassword')).toBeTruthy();
+        expect(infoUser.contains('role')).toBeTruthy();
+        expect(infoUser.contains('gender')).toBeTruthy();
+    
+        expect(component.signupForm.contains('location')).toBeTruthy();
+        const location = component.signupForm.get('location') as FormGroup;
+        expect(location.contains('region')).toBeTruthy();
+        expect(location.contains('country')).toBeTruthy();
+      });
 })
