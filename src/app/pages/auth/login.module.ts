@@ -26,6 +26,7 @@ import { RoutingAuthModule } from "./routing-auth.module";
     MatSnackBarModule,
     RoutingAuthModule
   ],
-  providers:[RegionFormComponent]
+  providers:[
+    {provide:RegionFormComponent, useClass:RegionFormComponent}]
 })
 export class LoginModule { }

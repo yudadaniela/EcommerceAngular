@@ -147,6 +147,24 @@
         "region": "Americas",
         "country": "USA"
       }
+    },
+    {
+      "id": "b006",
+      "informationUser": {
+        "firtName": "yjk",
+        "secondName": "asdf",
+        "surtName": "vbn",
+        "secondSurtname": "dff",
+        "email": "cami@hotmil.com",
+        "password": "Dani.92123124474",
+        "confirmPassword": "Dani.92123124474",
+        "role": "user",
+        "gender": "female"
+      },
+      "location": {
+        "region": "Africa",
+        "country": "MRT"
+      }
     }
   ]
 }

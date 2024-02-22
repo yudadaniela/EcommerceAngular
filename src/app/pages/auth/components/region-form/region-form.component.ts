@@ -19,9 +19,9 @@ import { CountriesService } from 'src/app/services/countries.service';
 })
 export class RegionFormComponent implements OnInit{
   public countriesByRegion:SmallCountry[]=[]
- @Input() groupName = '' 
  @Output() locationDataChange:EventEmitter<any> = new EventEmitter<any>() 
-  constructor(
+  
+ constructor(
     private fb:FormBuilder,
     private countryService:CountriesService,
   ){}
