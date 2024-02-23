@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { admiGuard } from './guards/admi.guard';
 import { homeProductsGuard } from './guards/home-products.guard';
+import { shoppingGuard } from './guards/shopping.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
       import('./pages/shopping-card/shopping-card.module').then(
         (m) => m.ShoppingCardModule
       ),
+      canActivate:[shoppingGuard]
   },
   {
     path: 'admi',

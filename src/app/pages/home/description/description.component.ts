@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CartService } from 'src/app/services/cart.service';
 import { ItemCar } from "../../../Models/cart-items";
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class DescriptionComponent implements OnInit {
     private apiService:ApiProductsService,
     private cartService: CartService,
     private route: ActivatedRoute,
+    private authService:AuthService
   ){ 
     
   }
@@ -47,6 +49,9 @@ export class DescriptionComponent implements OnInit {
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+  isAuthentication(){
+    return this.authService.ifAuthentication()
   }
 
 }

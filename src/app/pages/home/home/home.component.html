@@ -9,7 +9,7 @@
         <a routerLink="/home/description/{{item.id}}"><h5 class="card-title">{{ item.title }}</h5></a>
         <!-- <p class="card-text">{{ item.description.length >100 ? (datum.description|slice:0:100)+'...':datum.description }}</p> -->
         <h6 class="card-price ">{{ item.price | currency }}</h6>
-        <button (click)="addToCar(item)" class="btn btn-primary card-button"  ><mat-icon>shopping_cart</mat-icon></button>
+        <button *ngIf="isAuthentication()" (click)="addToCar(item)" class="btn btn-primary card-button"  ><mat-icon>shopping_cart</mat-icon></button>
       </div>
     </div>
   </div>

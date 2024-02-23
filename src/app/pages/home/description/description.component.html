@@ -10,7 +10,7 @@
         <p>{{ itemCar.description }}</p>
         <span>{{ itemCar.price | currency }}/USD</span>
         <!-- <app-counter></app-counter> -->
-        <div class="button">
+        <div *ngIf="isAuthentication()" class="button">
           <button (click)="addCart(itemCar)">Add</button>
         </div>
         

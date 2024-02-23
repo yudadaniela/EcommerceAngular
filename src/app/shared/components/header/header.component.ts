@@ -31,8 +31,11 @@ export class HeaderComponent {
     this.user = this.authService.getUser()
     return this.user
   }
-  isAdmi():boolean|null{
+  isAdmi():boolean | null{
    return this.authService.isAdmi()
+  }
+  isUser():boolean | null{
+    return this.authService.isUser() 
   }
   signOff(){
     console.log(this.authService.logout());

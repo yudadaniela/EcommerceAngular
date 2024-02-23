@@ -6,6 +6,7 @@ import { ItemCar } from '../../../Models/cart-items';
 import { CartService } from '../../../services/cart.service';
 import { FilterService } from 'src/app/services/filter.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent implements OnInit {
     private cartService: CartService,
     private apiService: ApiProductsService,
     private filterService :FilterService,
-    private router:ActivatedRoute
+    private router:ActivatedRoute,
+    private authService:AuthService
   ) {}
 
   addToCar(item: ProductHome) {
@@ -49,9 +51,6 @@ export class HomeComponent implements OnInit {
         this.filterData =[]
       if(category){
         this.filterData = this.filterService.filterByCategory(this.data, category)
-        // this.filterService.categoryEvent.subscribe((category)=>{
-        //   this.filterData = this.filterService.filterByCategory(this.data, category)
-        //  })
       }
       else{
         this.filterData = this.data
@@ -61,5 +60,8 @@ export class HomeComponent implements OnInit {
       });
     })
     
+  }
+  isAuthentication(){
+    return this.authService.ifAuthentication()
   }
 }

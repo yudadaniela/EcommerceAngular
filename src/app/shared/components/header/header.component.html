@@ -19,16 +19,16 @@
       <li *ngIf="!currentUser()"><a routerLink="/auth/login">Login</a></li>
       <li><a routerLink="/home">Home</a></li>
       <li><a routerLink="/home/homeProducts">Products</a></li>
-      <li><a routerLink="/shopping"> Shopping Cart</a></li>
+      <li *ngIf="isAdmi()||isUser()"><a routerLink="/shopping"> Shopping Cart</a></li>
      <li *ngIf="isAdmi()"><a  routerLink="/admi">Administration</a>
       </li> 
-
       <li class="cart-icon">
         <i class="fa-solid fa-cart-shopping"></i>
       </li>
       <div class="counter">
         <h3>{{ shoppingCounter() }}</h3>
       </div>
+   
     </ul>
   </nav>
 </header>

@@ -21,9 +21,6 @@ export class ApiProductsService {
    * @returns Return observable with array of products
    */
   getData():Observable<ProductHome[]>{
-    if(!this.authService.ifAuthentication()){
-      this.router.navigate(['/auth/login'])
-    }
     return this.http.get<ProductHome[]>(this.upiUrl)
     .pipe(catchError((error)=>{
       return throwError(()=>{error})
@@ -46,6 +43,9 @@ export class ApiProductsService {
    * @returns return post method to add the product to data
    */
   addData(model:ProductHome):Observable<ProductHome>{
+    if(!this.authService.ifAuthentication()){
+      this.router.navigate(['/auth/login']);  
+    }
     return this.http.post<ProductHome>(this.upiUrl, model)
     .pipe(catchError((error)=>{
       return throwError(()=>{error})
@@ -58,6 +58,9 @@ export class ApiProductsService {
    * @returns Retunt method put for modified or update 
    */
   upDate(id:number,model:ProductHome):Observable<ProductHome>{
+    if(!this.authService.ifAuthentication()){
+      this.router.navigate(['/auth/login']);  
+    }
     return this.http.put<ProductHome>(`${this.upiUrl}/${id}`, model)
     .pipe(catchError((error)=>{
       return throwError(()=>{error})
@@ -69,6 +72,9 @@ export class ApiProductsService {
    * @returns return method delete for erase a product
    */
   delete(id:number):Observable<void>{
+    if(!this.authService.ifAuthentication()){
+      this.router.navigate(['/auth/login']); 
+    }
     return this.http.delete<void>(`${this.upiUrl}/${id}`)
     .pipe(catchError((error)=>{
       return throwError(()=>{error})
