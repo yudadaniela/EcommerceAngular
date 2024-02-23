@@ -10,7 +10,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
-    },
+  },
   {
     path: 'auth',
     loadChildren: () =>
@@ -22,7 +22,7 @@ const routes: Routes = [
       import('./pages/shopping-card/shopping-card.module').then(
         (m) => m.ShoppingCardModule
       ),
-      canActivate:[shoppingGuard]
+    canActivate: [shoppingGuard],
   },
   {
     path: 'admi',
@@ -30,10 +30,9 @@ const routes: Routes = [
       import('./pages/products-admi/product-admi.module').then(
         (m) => m.ProductAdmiModule
       ),
-      canActivate:[admiGuard]
+    canActivate: [admiGuard],
   },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
-  
 ];
 
 @NgModule({

@@ -1,18 +1,18 @@
-h5{
-    font-size: 16px;
-    color:hsl(341, 84%, 57%)
+h5 {
+  font-size: 16px;
+  color: hsl(341, 84%, 57%);
 }
 ul {
-    list-style-type: none;
-    padding: 0;
-  }
+  list-style-type: none;
+  padding: 0;
+}
 ul li {
-    padding: 1px;
-  }
- ul li a {
-    color: #0f0404;
-    text-decoration: none;
-  }
+  padding: 1px;
+}
+ul li a {
+  color: #0f0404;
+  text-decoration: none;
+}
 ul li a:hover {
-   color: hsl(341, 84%, 57%);
-  }
+  color: hsl(341, 84%, 57%);
+}

@@ -1,22 +1,22 @@
- <app-header></app-header> 
- <app-sider-bar>
-    
-    <h5>Category</h5>
-    <ul>
-        <li>
-            <a  (click)="chooseCategory('men\'s clothing', $event)">men's clothing</a>
-        </li>
-        <li>
-            <a  (click)="chooseCategory('jewelery', $event)">jewelery</a>
-        </li>
-        <li>
-            <a  (click)="chooseCategory('electronics', $event)">electronics</a>
-        </li>
-        <li>
-            <a  (click)="chooseCategory('women\'s clothing', $event)">women's clothing</a>
-        </li>
-    </ul>
-
- </app-sider-bar>
+<app-header></app-header>
+<app-sider-bar>
+  <h5>Category</h5>
+  <ul>
+    <li>
+      <a (click)="chooseCategory('men\'s clothing', $event)">men's clothing</a>
+    </li>
+    <li>
+      <a (click)="chooseCategory('jewelery', $event)">jewelery</a>
+    </li>
+    <li>
+      <a (click)="chooseCategory('electronics', $event)">electronics</a>
+    </li>
+    <li>
+      <a (click)="chooseCategory('women\'s clothing', $event)"
+        >women's clothing</a
+      >
+    </li>
+  </ul>
+</app-sider-bar>
 <router-outlet></router-outlet>
- <app-footer></app-footer> 
+<app-footer></app-footer>
