@@ -1,0 +1,14 @@
+.form-input select{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.form-input label{
+    margin-bottom: 3px;
+}
+
+.form-input select{
+    border: 1 px solid #ccc;
+    font-size: 16px;
+    width: 200px;
+}

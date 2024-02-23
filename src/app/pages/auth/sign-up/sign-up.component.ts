@@ -28,8 +28,10 @@ import { ErrorStateMatcher } from '@angular/material/core';
 })
 
 export class SignUpComponent implements OnInit {
+  
   public countriesByRegion: SmallCountry[] = [];
   //public currencyCountry:SmallCountry[]=[]
+  segment:number=1;
   signupForm:FormGroup
   constructor(
     private fb: FormBuilder,
@@ -96,5 +98,14 @@ export class SignUpComponent implements OnInit {
    this.signupForm.updateValueAndValidity()
   }
 
- 
+  advance(){
+    if(this.segment<2){
+      this.segment ++
+    }
+  }
+  goBack(){
+    if(this.segment>1){
+      this.segment --
+    }
+  }
 }

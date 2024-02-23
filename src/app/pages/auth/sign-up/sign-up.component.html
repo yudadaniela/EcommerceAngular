@@ -3,6 +3,7 @@
     <h2>Sign-up</h2>
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <fieldset formGroupName="informationUser">
+      <div *ngIf="segment === 1">
         <div class="form-input">
           <label for="firtName">Firts Name</label>
           <input type="text" formControlName="firtName" id="firtName" />
@@ -185,7 +186,11 @@
         >
           Paswords do not match
         </div>
-        <div class="form-input">
+        <button (click)="advance()">Continue</button>
+      </div>
+    </fieldset>
+      <div *ngIf="segment === 2">
+        <div class="custom-selector">
           <label for="">Gender</label>
           <select name="gender" id="gender" formControlName="gender">
             <option value="">--Select Gender</option>
@@ -193,17 +198,18 @@
             <option value="male">Male</option>
           </select>
         </div>
-        <div
-          >
-        </div>
-
-      </fieldset>
+        
+      
+     
+     
       <app-region-form
         (locationDataChange)="UpdateLocation($event)"
       ></app-region-form>
       <div>
+        <button (click)="goBack()">Go Back</button>
         <button type="submit">Send</button>
       </div>
+    </div>
     </form>
   </div>
 </body>

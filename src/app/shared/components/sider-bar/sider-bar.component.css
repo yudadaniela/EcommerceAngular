@@ -1,5 +1,19 @@
-div{
-    background-color:  hsl(330, 2%, 80%);;
-    width: 100%;
-    height: 15%;
+div {
+  background-color: hsl(330, 2%, 80%);
+  width: 100%;
+  height: 15%;
+}
+ng-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+ng-content ul li {
+  padding: 10px;
+}
+ng-content ul li a {
+  color: #a22121;
+  text-decoration: none;
+}
+ng-content ul li a:hover {
+  background-color: #555;
 }

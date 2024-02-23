@@ -97,7 +97,6 @@ export class ModalComponent {
       this.segment ++
     }
   }
-  
   goBack(){
     if(this.segment>1){
       this.segment --
