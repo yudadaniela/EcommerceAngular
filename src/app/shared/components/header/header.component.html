@@ -11,7 +11,7 @@
         <div class="user-inf">
           <div class="user-greeting">
             <h5></h5>
-            <h5>Hello, {{ user?.firtName }} | titleCase </h5>
+            <h5>Hello, {{ user?.firtName | titlecase }}  </h5>
           </div>
           <button (click)="signOff()">Log Out</button>
         </div>

@@ -39,21 +39,26 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getData().subscribe((respond) => {
-      this.data = respond;
-      this.filterData=respond
-      //console.log(respond);
-    });
-    this.filterService.searchEvent.subscribe((searchTerm)=>{
-     this.filterData = this.filterService.filterBySearch(this.data, searchTerm)
-    })
     this.router.queryParams.subscribe(params =>{
       const category=params['category']
+      
+      this.apiService.getData().subscribe((respond) => {
+        this.data = respond;
+        // this.filterData=respond
+        //console.log(respond);
+        this.filterData =[]
       if(category){
-        this.filterService.categoryEvent.subscribe((category)=>{
-          this.filterData = this.filterService.filterByCategory(this.data, category)
-         })
+        this.filterData = this.filterService.filterByCategory(this.data, category)
+        // this.filterService.categoryEvent.subscribe((category)=>{
+        //   this.filterData = this.filterService.filterByCategory(this.data, category)
+        //  })
       }
+      else{
+        this.filterData = this.data
+        this.filterService.searchEvent.subscribe((searchTerm)=>{
+         this.filterData = this.filterService.filterBySearch(this.data, searchTerm)
+        })}
+      });
     })
     
   }
