@@ -1,4 +1,4 @@
-//componente contenedor 
+//componente contenedor
 import { ApiProductsService } from '../../../services/api-products.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductHome } from 'src/app/Models/products-home';
@@ -14,15 +14,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  data!:ProductHome[];
-  filterData!:ProductHome[];
-  category:string=''
+  data!: ProductHome[];
+  filterData!: ProductHome[];
+  category: string = '';
   constructor(
     private cartService: CartService,
     private apiService: ApiProductsService,
-    private filterService :FilterService,
-    private router:ActivatedRoute,
-    private authService:AuthService
+    private filterService: FilterService,
+    private router: ActivatedRoute,
+    private authService: AuthService
   ) {}
 
   addToCar(item: ProductHome) {
@@ -41,27 +41,32 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.queryParams.subscribe(params =>{
-      const category=params['category']
-      
+    this.router.queryParams.subscribe((params) => {
+      const category = params['category'];
+
       this.apiService.getData().subscribe((respond) => {
         this.data = respond;
         // this.filterData=respond
         //console.log(respond);
-        this.filterData =[]
-      if(category){
-        this.filterData = this.filterService.filterByCategory(this.data, category)
-      }
-      else{
-        this.filterData = this.data
-        this.filterService.searchEvent.subscribe((searchTerm)=>{
-         this.filterData = this.filterService.filterBySearch(this.data, searchTerm)
-        })}
+        this.filterData = [];
+        if (category) {
+          this.filterData = this.filterService.filterByCategory(
+            this.data,
+            category
+          );
+        } else {
+          this.filterData = this.data;
+          this.filterService.searchEvent.subscribe((searchTerm) => {
+            this.filterData = this.filterService.filterBySearch(
+              this.data,
+              searchTerm
+            );
+          });
+        }
       });
-    })
-    
+    });
   }
-  isAuthentication(){
-    return this.authService.ifAuthentication()
+  isAuthentication() {
+    return this.authService.ifAuthentication();
   }
 }

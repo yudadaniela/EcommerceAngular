@@ -6,21 +6,20 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ApiProductsService } from '../../../services/api-products.service';
 import { ProductHome } from '../../../Models/products-home';
 
-
 @Component({
   selector: 'app-modal-delete',
   templateUrl: './modal-delete.component.html',
-  styleUrls: ['./modal-delete.component.css']
+  styleUrls: ['./modal-delete.component.css'],
 })
 export class ModalDeleteComponent {
- constructor(
-  private modalRef: MatDialogRef<ModalDeleteComponent>, 
-  @Inject(MAT_DIALOG_DATA)public dataProduct:ProductHome
- ){}
+  constructor(
+    private modalRef: MatDialogRef<ModalDeleteComponent>,
+    @Inject(MAT_DIALOG_DATA) public dataProduct: ProductHome
+  ) {}
 
- deleteItem(){
-  if(this.dataProduct){
-    this.modalRef.close('delete')
+  deleteItem() {
+    if (this.dataProduct) {
+      this.modalRef.close('delete');
+    }
   }
- }
 }

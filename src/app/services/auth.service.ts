@@ -9,13 +9,13 @@ import { Observable, catchError, map, throwError, Subscriber } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
   private token: string = '';
-  private users: User[] |any = [];
+  private users: User[] | any = [];
   private isLoggedIn: boolean = false;
   private currentUser: User | null = null;
   constructor(private http: HttpClient) {}
   /**
-   * 
-   * @returns return fake token 
+   *
+   * @returns return fake token
    */
   private tokenGenerate() {
     let random1 = Math.random().toString(36).substring(2);
@@ -31,22 +31,22 @@ export class AuthService {
     localStorage.setItem('access_token', this.tokenGenerate());
   }
   /**
-   * 
-   * @returns return the fake token 
+   *
+   * @returns return the fake token
    */
   private getAccessToken(): string | null {
     return localStorage.getItem('access_token');
   }
   /**
-   * 
-   * @param user it's a object of type User of new user 
+   *
+   * @param user it's a object of type User of new user
    * @returns post request to the API, save the new user
    */
   createUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, user);
   }
   /**
-   * 
+   *
    * @returns Return the array the users form data
    */
   getUsers(): Observable<User[]> {
@@ -55,7 +55,7 @@ export class AuthService {
     return this.http.get<User[]>(this.apiUrl);
   }
   /**
-   * 
+   *
    * @param email data entered by the user
    * @returns Observablethat emit true if email is unique, false if email exist
    */
@@ -64,12 +64,12 @@ export class AuthService {
       map((users) => users.every((user) => user.email !== email))
     );
   }
- /**
-  * 
-  * @param email data entered by the user 
-  * @param password data entared by the user
-  * @returns verify that the password and email are in data base and return Observable boolean true  
-  */
+  /**
+   *
+   * @param email data entered by the user
+   * @param password data entared by the user
+   * @returns verify that the password and email are in data base and return Observable boolean true
+   */
   login(email: string, password: string): Observable<boolean> {
     return this.getUsers()
       .pipe(
@@ -99,10 +99,10 @@ export class AuthService {
         })
       );
   }
-/**
- * 
- * @returns return boleean true when the localStorage have fake token  
- */
+  /**
+   *
+   * @returns return boleean true when the localStorage have fake token
+   */
   ifAuthentication(): boolean {
     const token = this.getAccessToken();
     console.log(!!token);
@@ -119,8 +119,8 @@ export class AuthService {
     console.log('remove', this.getAccessToken());
   }
   /**
-   * 
-   * @returns Return the object the user the type User 
+   *
+   * @returns Return the object the user the type User
    */
   getUser() {
     return this.currentUser;

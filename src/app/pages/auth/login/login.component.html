@@ -1,10 +1,7 @@
 <body>
   <div class="container">
     <h2>Login</h2>
-    <form
-      [formGroup]="formLogin"
-      (ngSubmit)="onSubmit()"
-    >
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
       <div class="form-input">
         <label for="email">Email</label>
         <input formControlName="email" id="email" type="email" #email />

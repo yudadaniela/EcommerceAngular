@@ -1,41 +1,39 @@
- .container{
+.container {
   padding: 15px;
   background-color: #eeee;
- 
 }
-.card{
-    border-radius: 10px;
-   
+.card {
+  border-radius: 10px;
 }
-.card-img{
-height: 20rem;
+.card-img {
+  height: 20rem;
 }
-.card-body{
-    background-color: eeee;
+.card-body {
+  background-color: eeee;
 }
-.card-title{
-    font-size: large;
+.card-title {
+  font-size: large;
 }
-.card-text{
-    font-size: small;
+.card-text {
+  font-size: small;
 }
-.card-price{
-    font-size: large;
+.card-price {
+  font-size: large;
 }
-a{
-    color: black;
+a {
+  color: black;
 }
-  button{
-    background-color:  hsl(341, 84%, 57%);
-    border:  hsl(341, 84%, 57%);
-    color: aliceblue;
-    width: 30%;
-    border-radius: 50%;
-}   
+button {
+  background-color: hsl(341, 84%, 57%);
+  border: hsl(341, 84%, 57%);
+  color: aliceblue;
+  width: 30%;
+  border-radius: 50%;
+}
 
-.card-button{
-   position: absolute;
-   bottom: 10px;
-   left: 50%;
-   transform: translateX(-50%);
+.card-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }

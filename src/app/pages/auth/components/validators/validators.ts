@@ -1,17 +1,8 @@
 import {
   AbstractControl,
-  FormGroup,
   ValidationErrors,
   ValidatorFn,
-  FormControl,
-  AsyncValidatorFn,
-  FormGroupDirective,
-  NgForm,
 } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
-import { ErrorStateMatcher } from '@angular/material/core';
 
 export function createPasswordStrengthValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

@@ -36,10 +36,7 @@ export class LoginComponent {
     //console.log(password);
     this.authService.login(email, password).subscribe(
       (login) => {
-        // login?this.router.navigate(['/admi']):this.router.navigate(['/register'])
-        // console.log(login);
-
-        if (login) {
+            if (login) {
           console.log('se hizo login');
           this.router.navigate(['/admi']);
         } else {
@@ -62,11 +59,4 @@ export class LoginComponent {
     );
   }
 }
-//this.formLogin.markAllAsTouched();
-// const emailAndPassword = { email: email, password: password };
-// this.authService
-//   .login(emailAndPassword.email, emailAndPassword.password)
-//   .then((response) => {
-//     console.log(response, 'ok');
-//   })
-//   .catch((error) => console.log(error));
+

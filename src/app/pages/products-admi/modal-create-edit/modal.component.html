@@ -24,11 +24,9 @@
         <mat-grid-tile>
           <button mat-raised-button color="primary" (click)="advance()">
             next
-           </button>
-           <button mat-raised-button mat-dialog-close color="warn">Close</button>
-
+          </button>
+          <button mat-raised-button mat-dialog-close color="warn">Close</button>
         </mat-grid-tile>
-        
       </div>
       <div *ngIf="segment === 2">
         <mat-grid-tile>
@@ -60,9 +58,11 @@
           <button mat-raised-button color="primary" (click)="goBack()">
             Go back
           </button>
-  
+
           <div mat-dialog-actions>
-            <button mat-raised-button mat-dialog-close color="warn">Close</button>
+            <button mat-raised-button mat-dialog-close color="warn">
+              Close
+            </button>
             <button
               mat-raised-button
               color="primary"
@@ -73,7 +73,6 @@
             </button>
           </div>
         </mat-grid-tile>
-        
       </div>
     </mat-grid-list>
   </form>

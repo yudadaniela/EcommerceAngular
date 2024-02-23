@@ -26,8 +26,8 @@ export class CountriesService {
   }
   /**
    *
-   * @param region the parameter the type Region 
-   * @returns a map whit the name of the country, country borders and currency 
+   * @param region the parameter the type Region
+   * @returns a map whit the name of the country, country borders and currency
    */
   getCountriesByRegion(region: Region): Observable<SmallCountry[]> {
     if (!region) return of([]);
@@ -35,12 +35,11 @@ export class CountriesService {
     return this.http.get<Country[]>(url).pipe(
       map((countries) =>
         countries.map((country) => ({
-          name: country.name.common ??'',
+          name: country.name.common ?? '',
           cca3: country.cca3,
           borders: country.borders ?? [], //operador de covalencia nula, evalua si es nulo
         }))
       ) //regreza lo que nosotros queramos, transforma la data
     );
   }
-  
 }

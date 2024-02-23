@@ -3,15 +3,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-/* .container{
-position: relative;
-}
-.container h3{
-    position: absolute;
-    bottom: -1px;
-    right: 60px;
-    font-size:xx-large;
-} */
+
 .container{
     display: flex;
     justify-content: flex-end;

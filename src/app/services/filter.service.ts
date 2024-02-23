@@ -7,7 +7,7 @@ import { ProductHome } from 'src/app/Models/products-home';
 })
 export class FilterService {
   searchEvent: EventEmitter<string> = new EventEmitter<string>();
-  categoryEvent:EventEmitter<string> = new EventEmitter<string>()
+  categoryEvent: EventEmitter<string> = new EventEmitter<string>();
   constructor() {}
 
   emitSearch(item: string) {
@@ -29,13 +29,13 @@ export class FilterService {
       );
     }
   }
-  filterByCategory(data:ProductHome[],category:string){
+  filterByCategory(data: ProductHome[], category: string) {
     if (!data || !category) {
       return data;
     } else {
       return data.filter(
-        (item) =>item.category?.toLowerCase()===category.toLowerCase()
-      )
+        (item) => item.category?.toLowerCase() === category.toLowerCase()
+      );
+    }
   }
-}
 }
