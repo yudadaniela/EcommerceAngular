@@ -1,6 +1,6 @@
 # Lovely clothes
 Lovely clothes is an online clothing store, it is made up of 4 screens: home, administration (only for product administrators), shopping card (administrators and users registers) and auth (login and registration)
-More information here [an example](http://example.com/ "Title") inline link.
+More information here [Document](https://docs.google.com/document/d/1h5cLcL48EjYa5KTre8i9LoZaSuWpQ9Ud/edit "document").
 
 ## AngularEcommerce
 
