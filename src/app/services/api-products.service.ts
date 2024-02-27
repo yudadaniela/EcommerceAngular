@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class ApiProductsService {
   private upiUrl = 'http://localhost:3000/products';
+  private apiUrl ='https://localhost:7094/swagger/v1/swagger.json'
 
   constructor(
     private http: HttpClient,
@@ -49,7 +50,7 @@ export class ApiProductsService {
    * @returns return post method to add the product to data
    */
   addData(model: ProductHome): Observable<ProductHome> {
-    if (!this.authService.ifAuthentication()) {
+    if (!this.authService.isAuthentication()) {
       this.router.navigate(['/auth/login']);
     }
     return this.http.post<ProductHome>(this.upiUrl, model).pipe(
@@ -67,7 +68,7 @@ export class ApiProductsService {
    * @returns Retunt method put for modified or update
    */
   upDate(id: number, model: ProductHome): Observable<ProductHome> {
-    if (!this.authService.ifAuthentication()) {
+    if (!this.authService.isAuthentication()) {
       this.router.navigate(['/auth/login']);
     }
     return this.http.put<ProductHome>(`${this.upiUrl}/${id}`, model).pipe(
@@ -84,7 +85,7 @@ export class ApiProductsService {
    * @returns return method delete for erase a product
    */
   delete(id: number): Observable<void> {
-    if (!this.authService.ifAuthentication()) {
+    if (!this.authService.isAuthentication()) {
       this.router.navigate(['/auth/login']);
     }
     return this.http.delete<void>(`${this.upiUrl}/${id}`).pipe(

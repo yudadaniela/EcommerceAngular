@@ -103,7 +103,7 @@ export class AuthService {
    *
    * @returns return boleean true when the localStorage have fake token
    */
-  ifAuthentication(): boolean {
+  isAuthentication(): boolean {
     const token = this.getAccessToken();
     console.log(!!token);
     return !!token;

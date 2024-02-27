@@ -39,7 +39,7 @@ describe('LoginComponent',()=>{
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should create the login fromwith requred fields and validators',()=>{
+  it('should create the login fromwith requered fields',()=>{
    expect(component.formLogin).toBeDefined();
    expect(component.formLogin.controls['email']).toBeDefined();
    expect(component.formLogin.controls['password']).toBeDefined();

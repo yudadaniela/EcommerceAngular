@@ -45,6 +45,6 @@ export class DescriptionComponent implements OnInit {
     this.subscription.unsubscribe();
   }
   isAuthentication() {
-    return this.authService.ifAuthentication();
+    return this.authService.isAuthentication();
   }
 }

@@ -12,7 +12,7 @@ class PermissionService {
     private authService:AuthService
   ) {}
   canActivate(next:ActivatedRouteSnapshot, state:RouterStateSnapshot):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean |UrlTree{
-    if(this.authService.ifAuthentication() && this.authService.isAdmi()||this.authService.isUser()){
+    if(this.authService.isAuthentication() && this.authService.isAdmi()||this.authService.isUser()){
      console.log('acceso activado home');
      return true
     }else {

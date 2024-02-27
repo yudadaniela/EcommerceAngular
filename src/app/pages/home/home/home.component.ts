@@ -41,6 +41,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.initialization() 
+  }
+  initialization(){
     this.router.queryParams.subscribe((params) => {
       const category = params['category'];
 
@@ -65,8 +68,11 @@ export class HomeComponent implements OnInit {
         }
       });
     });
+
   }
   isAuthentication() {
-    return this.authService.ifAuthentication();
+    console.log();
+    
+  return this.authService.isAuthentication();
   }
 }

@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { ProductHome } from 'src/app/Models/products-home';
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('DescriptionComponent', () => {
   let component: DescriptionComponent;
@@ -25,6 +26,7 @@ describe('DescriptionComponent', () => {
     mockApiService.getDataId.and.returnValue(of(MOCKPRODUCT))
     mockCartService=jasmine.createSpyObj('CartService',['addToCartLocalStorage', 'total', 'counter'])
     await TestBed.configureTestingModule({
+      imports:[HttpClientTestingModule],
       declarations: [DescriptionComponent],
       providers:[
         {provide:ActivatedRoute, useValue:{snapshot:{paramMap:{get:()=>'1'}}}},

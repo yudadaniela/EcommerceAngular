@@ -25,7 +25,7 @@ describe('AuthService', () => {
     const password = '123456'
     service.login('test@gmail.com', '123456').subscribe(isLogged =>{
       expect(isLogged).toBeTrue()
-      expect(service.ifAuthentication()).toBeTrue()
+      expect(service.isAuthentication()).toBeTrue()
     })
     const req = httpMock.expectOne('http://localhost:3000/users')
     expect(req.request.method).toEqual('GET')
@@ -36,7 +36,7 @@ describe('AuthService', () => {
     const email = 'test@gmail.com';
     const password = '123456'
     service.login('test@gmail.com', '123456').subscribe(isLogged =>{
-      expect(service.ifAuthentication()).toBeTrue()
+      expect(service.isAuthentication()).toBeTrue()
     })
 
     const req = httpMock.expectOne('http://localhost:3000/users')
@@ -47,10 +47,10 @@ describe('AuthService', () => {
     const email = 'test@gmail.com';
     const password = '123456'
     service.login('test@gmail.com', '123456').subscribe(isLogged =>{
-      expect(service.ifAuthentication()).toBeTrue()
+      expect(service.isAuthentication()).toBeTrue()
     })
     service.logout()
-    expect(service.ifAuthentication()).toBeFalse()
+    expect(service.isAuthentication()).toBeFalse()
     const req = httpMock.expectOne('http://localhost:3000/users')
     expect(req.request.method).toEqual('GET')
     req.flush([{email:'test@gmail.com', password:'123456'}])

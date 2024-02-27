@@ -46,7 +46,7 @@ afterEach(()=>{
       "category": "men's clothing",
       "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
     },]
-   spyOn(authService,'ifAuthentication').and.returnValue(true);
+   spyOn(authService,'isAuthentication').and.returnValue(true);
    service.getData().subscribe(data=>{
     expect(data).toEqual(MOCKPRODUTS)
    })
@@ -55,7 +55,7 @@ afterEach(()=>{
    req.flush(MOCKPRODUTS)
   })
   xit('It should send you to another screen if you have not been authenticated', ()=>{
-    spyOn(authService, 'ifAuthentication').and.returnValue(false);
+    spyOn(authService, 'isAuthentication').and.returnValue(false);
     spyOn(service['router'], 'navigate')
     service.getData().subscribe({
       error:er=>{

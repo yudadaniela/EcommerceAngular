@@ -9,10 +9,6 @@ export class CartService {
   totalProduct: number[] = [];
   counterN: number[] = [];
   constructor() {
-    // let carLocalStorage=localStorage.getItem('car')
-    // if (carLocalStorage){
-    //   this.car=JSON.parse(carLocalStorage)
-    // }
   }
 
   addToCartLocalStorage(product: ItemCar) {
@@ -34,13 +30,16 @@ export class CartService {
   }
   counter(): number {
     this.counterN = this.car.map((p) => p.quantity);
-    //console.log(this.totalProduct);
-    //console.log(this.counterN.reduce((total, product) => total + product, 0));
     return this.counterN.reduce((total, product) => total + product, 0);
   }
 
   getToLocalStorage() {
     return this.car;
+  }
+ 
+  clearById(productId:ItemCar){
+    const itemRepite = this.car.find((p) => p.id === productId.id);
+    
   }
 
   clearCart() {

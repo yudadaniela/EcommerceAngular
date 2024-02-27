@@ -11,7 +11,7 @@ class PermissionService {
     private authService:AuthService
   ) {}
   canActivate(next:ActivatedRouteSnapshot, state:RouterStateSnapshot):Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean |UrlTree{
-    if(this.authService.ifAuthentication()){
+    if(this.authService.isAuthentication()){
      console.log('acceso activado para shopping');
      return true
     }else{
