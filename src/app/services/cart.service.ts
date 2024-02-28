@@ -37,18 +37,18 @@ export class CartService {
     return this.car;
   }
  
-  clearById(){
-    Object.keys(localStorage).forEach(key => {
-      //Comprueba si la clave coincide con alguna condición
-      console.log(key);
+  clearById(id:number){
+    let carrito=JSON.parse(localStorage.getItem('car') ?? '[]')
+    let index=carrito.findIndex((product:ItemCar)=>product.id===id)
+    if(index!==-1){
+     carrito.slice(index,1)
+     localStorage.setItem('car',JSON.stringify(carrito))
+     console.log('se borro del carrito');
+     
+    }else{
+      console.log('no se encontro el id');
       
-      if (key.endsWith("id")) {
-          // Elimina el par clave-valor
-          console.log(localStorage.removeItem(key));
-          
-          localStorage.removeItem(key);
-      }
-  });
+    }
   }
 
   clearCart() {

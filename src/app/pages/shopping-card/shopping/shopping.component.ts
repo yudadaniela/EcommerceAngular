@@ -1,5 +1,5 @@
 import { Subscriber, Observable } from 'rxjs';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from '../../home/home/home.component';
 import { ItemCar } from '../../../Models/cart-items';
 import { CartService } from '../../../services/cart.service';
@@ -9,10 +9,13 @@ import { CartService } from '../../../services/cart.service';
   templateUrl: './shopping.component.html',
   styleUrls: ['./shopping.component.css'],
 })
-export class ShoppingComponent {
+export class ShoppingComponent implements OnInit {
   totalCart: number = 0;
   constructor(private cartService: CartService) {
     this.totalUpdate();
+  }
+  ngOnInit(): void {
+    this.getShoppingCart()
   }
   getShoppingCart() {
     return this.cartService.getToLocalStorage();
@@ -20,11 +23,13 @@ export class ShoppingComponent {
   clearShoppinCart() {
     this.cartService.clearCart();
     this.totalCart = 0;
+    
   }
   totalUpdate() {
     this.totalCart = this.cartService.total();
   }
-  deleteByItem(){
-    return this.cartService.clearById()
+  deleteByItem(id:number){
+    this.cartService.clearById(id)
+    this.totalUpdate()
   }
 }

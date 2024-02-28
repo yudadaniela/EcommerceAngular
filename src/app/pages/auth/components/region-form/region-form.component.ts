@@ -25,7 +25,11 @@ import { CountriesService } from 'src/app/services/countries.service';
 export class RegionFormComponent implements OnInit {
   public countriesByRegion: SmallCountry[] = [];
   @Output() locationDataChange: EventEmitter<any> = new EventEmitter<any>();
-
+/**
+ * 
+ * @param fb injection the FormBuilder
+ * @param countryService Injection the service countrie
+ */
   constructor(
     private fb: FormBuilder,
     private countryService: CountriesService
@@ -34,7 +38,9 @@ export class RegionFormComponent implements OnInit {
     region: ['', [Validators.required]],
     country: ['', [Validators.required]],
   });
-
+  /**
+   * inicialization the component, form and suscription to changes
+   */
   ngOnInit(): void {
     const predeterminedRegion = '';
     const predeterminedCountry = '';
@@ -52,11 +58,16 @@ export class RegionFormComponent implements OnInit {
     this.regions;
     this.onRegionChanged();
   }
-
+/**
+ * getter that delivery the list the regions
+ */
   get regions(): Region[] {
     return this.countryService.regions;
   }
-
+ /**
+  * execute when change the region selected 
+  * load the countries for region 
+  */
   onRegionChanged(): void {
     this.formRegion
       .get('region')!
@@ -68,7 +79,9 @@ export class RegionFormComponent implements OnInit {
         this.countriesByRegion = countries;
       });
   }
-
+/**
+ * emit the data selected
+ */
   emitLocationData() {
     const location = {
       region: this.formRegion.value.region,

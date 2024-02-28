@@ -33,6 +33,14 @@ export class SignUpComponent implements OnInit {
   //public currencyCountry:SmallCountry[]=[]
   segment: number = 1;
   signupForm: FormGroup;
+  /**
+   * 
+   * @param fb injection the formbuilder
+   * @param authService injection the service authservice
+   * @param snackBar injection the snackbar
+   * @param locationForm injection the anidado form
+   * @param router injection the router
+   */
   constructor(
     private fb: FormBuilder,
     // private countryService: CountriesService,
@@ -73,7 +81,11 @@ export class SignUpComponent implements OnInit {
       }),
     });
   }
-
+/**
+ * 
+ * @param mesg message for show
+ * @param action action the message
+ */
   showMesagge(mesg: string, action: string) {
     this.snackBar.open(mesg, action, {
       horizontalPosition: 'center',
@@ -81,6 +93,10 @@ export class SignUpComponent implements OnInit {
       duration: 3000,
     });
   }
+  /**
+   * send the register form
+   * if the user is valid, created a new user 
+   */
   onSubmit() {
     if (this.signupForm.valid) {
       const userData = this.signupForm.value;
@@ -91,22 +107,34 @@ export class SignUpComponent implements OnInit {
       });
     }
   }
+  /**
+   *suscribe the form for changes the region and country
+   */
   ngOnInit(): void {
     this.locationForm.locationDataChange.subscribe((locationData) => {
       this.signupForm.get('location')?.patchValue(locationData);
     });
   }
+  /**
+   * update the ubication 
+   * @param locationInfo data the ubication 
+   */
   UpdateLocation(locationInfo: Location) {
     console.log('Datos de ubicacionrecibidos', locationInfo);
     this.signupForm.get('location')?.setValue(locationInfo);
     this.signupForm.updateValueAndValidity();
   }
-
+/**
+ * avance in the form
+ */
   advance() {
     if (this.segment < 2) {
       this.segment++;
     }
   }
+ /**
+  * goback in the form
+  */
   goBack() {
     if (this.segment > 1) {
       this.segment--;

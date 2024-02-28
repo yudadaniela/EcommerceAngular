@@ -165,6 +165,24 @@
         "region": "Africa",
         "country": "MRT"
       }
+    },
+    {
+      "id": "a064",
+      "informationUser": {
+        "firtName": "Aslan",
+        "secondName": "David",
+        "surtName": "Nieto",
+        "secondSurtname": "Castro",
+        "email": "aslan@hotmail.com",
+        "password": "Dani.123456",
+        "confirmPassword": "Dani.123456",
+        "role": "user",
+        "gender": ""
+      },
+      "location": {
+        "region": "Americas",
+        "country": "COL"
+      }
     }
   ]
 }

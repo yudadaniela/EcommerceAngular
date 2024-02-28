@@ -10,6 +10,13 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class LoginComponent {
   formLogin: FormGroup;
+  /**
+   * 
+   * @param fb injection the formbuilder
+   * @param snackBar injection the MatSnckBar
+   * @param router injection the router
+   * @param authService injection the AuthService
+   */
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
@@ -21,7 +28,11 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
-
+/**
+ * 
+ * @param mesg message for show 
+ * @param action action the message 
+ */
   showMesagge(mesg: string, action: string) {
     this.snackBar.open(mesg, action, {
       horizontalPosition: 'center',
@@ -29,6 +40,12 @@ export class LoginComponent {
       duration: 3000,
     });
   }
+  /**
+   * Login 
+   * if the Login is successes, redirects pag the admi
+   * if the email no is register, send mesaggepara register
+   * if the password is incorrect, send message for check
+   */
   onSubmit() {
     const email = this.formLogin.get('email')?.value;
     //console.log(email);
