@@ -9,8 +9,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root',
 })
 export class ApiProductsService {
-  private upiUrl = 'http://localhost:3000/products';
-  private apiUrl ='https://localhost:7094/swagger/v1/swagger.json'
+  private apiUrl = 'http://localhost:3000/products';
+  private apiUrlSwagger ='https://localhost:7094/Product';
 
   constructor(
     private http: HttpClient,
@@ -22,7 +22,7 @@ export class ApiProductsService {
    * @returns Return observable with array of products
    */
   getData(): Observable<ProductHome[]> {
-    return this.http.get<ProductHome[]>(this.upiUrl).pipe(
+    return this.http.get<ProductHome[]>(this.apiUrlSwagger).pipe(
       catchError((error) => {
         return throwError(() => {
           error;
@@ -36,7 +36,7 @@ export class ApiProductsService {
    * @returns Return observable with product
    */
   getDataId(id: number): Observable<ProductHome> {
-    return this.http.get<ProductHome>(`${this.upiUrl}/${id}`).pipe(
+    return this.http.get<ProductHome>(`${this.apiUrlSwagger}/${id}`).pipe(
       catchError((error) => {
         return throwError(() => {
           error;
@@ -53,7 +53,7 @@ export class ApiProductsService {
     if (!this.authService.isAuthentication()) {
       this.router.navigate(['/auth/login']);
     }
-    return this.http.post<ProductHome>(this.upiUrl, model).pipe(
+    return this.http.post<ProductHome>(this.apiUrlSwagger, model).pipe(
       catchError((error) => {
         return throwError(() => {
           error;
@@ -71,7 +71,7 @@ export class ApiProductsService {
     if (!this.authService.isAuthentication()) {
       this.router.navigate(['/auth/login']);
     }
-    return this.http.put<ProductHome>(`${this.upiUrl}/${id}`, model).pipe(
+    return this.http.put<ProductHome>(`${this.apiUrlSwagger}/${id}`, model).pipe(
       catchError((error) => {
         return throwError(() => {
           error;
@@ -88,7 +88,7 @@ export class ApiProductsService {
     if (!this.authService.isAuthentication()) {
       this.router.navigate(['/auth/login']);
     }
-    return this.http.delete<void>(`${this.upiUrl}/${id}`).pipe(
+    return this.http.delete<void>(`${this.apiUrlSwagger}/${id}`).pipe(
       catchError((error) => {
         return throwError(() => {
           error;

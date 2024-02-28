@@ -1,0 +1,6 @@
+{
+    "/Product": {
+    "target": "https://localhost:7094",
+    "secure": false
+    }
+    }

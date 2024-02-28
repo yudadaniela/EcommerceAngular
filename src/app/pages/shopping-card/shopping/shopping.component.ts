@@ -24,4 +24,7 @@ export class ShoppingComponent {
   totalUpdate() {
     this.totalCart = this.cartService.total();
   }
+  deleteByItem(){
+    return this.cartService.clearById()
+  }
 }

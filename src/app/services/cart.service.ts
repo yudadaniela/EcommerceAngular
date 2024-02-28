@@ -21,7 +21,7 @@ export class CartService {
     }
     localStorage.setItem('car', JSON.stringify(this.car));
   }
-
+  
   total(): number {
     this.totalProduct = this.car.map((p) => p.quantity * p.price);
     //console.log(this.totalProduct);
@@ -37,13 +37,22 @@ export class CartService {
     return this.car;
   }
  
-  clearById(productId:ItemCar){
-    const itemRepite = this.car.find((p) => p.id === productId.id);
-    
+  clearById(){
+    Object.keys(localStorage).forEach(key => {
+      //Comprueba si la clave coincide con alguna condición
+      console.log(key);
+      
+      if (key.endsWith("id")) {
+          // Elimina el par clave-valor
+          console.log(localStorage.removeItem(key));
+          
+          localStorage.removeItem(key);
+      }
+  });
   }
 
   clearCart() {
     this.car = [];
-    localStorage.removeItem('car');
+    localStorage.clear();
   }
 }
